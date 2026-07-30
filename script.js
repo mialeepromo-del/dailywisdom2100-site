@@ -6,7 +6,7 @@ const deals = [
     description: "50% off all menu-priced pizzas.",
     expires: "Ends Aug 2",
     posted: "Newest",
-    image: "images/ChatGPT Image Jul 15, 2026, 03_29_10 PM.png",
+    image: "images/ChatGPT Image Jul 28, 2026, 02_36_31 PM",
     emoji: "🍕",
     code: "No code",
     affiliateLink: "https://www.dominos.com/en/deals/9413"
