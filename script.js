@@ -84,10 +84,15 @@ function renderDeals() {
 
   grid.innerHTML = filtered.map((deal, index) => `
     <article class="deal-card">
-      <div class="deal-image">
-        <span class="deal-emoji" aria-hidden="true">${deal.emoji}</span>
-        <span class="badge">${deal.benefit}</span>
-      </div>
+     <div class="deal-image">
+  <img
+    src="${deal.image}"
+    alt="${deal.title}"
+    class="deal-photo"
+    loading="lazy"
+  >
+  <span class="badge">${deal.benefit}</span>
+</div>
       <div class="deal-body">
         <div class="deal-meta"><span>${deal.category}</span><span>${deal.posted}</span></div>
         <h3 class="deal-title">${deal.title}</h3>
@@ -97,7 +102,14 @@ function renderDeals() {
           <button class="copy-btn" data-code="${deal.code}">Copy</button>
         </div>
         <div class="deal-meta"><span>${deal.expires}</span><span>Affiliate link later</span></div>
-        <button class="deal-button placeholder" data-index="${index}">Get This Deal</button>
+        <a
+  href="${deal.affiliateLink}"
+  class="deal-button"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Get This Deal
+</a>
       </div>
     </article>
   `).join("");
@@ -130,10 +142,6 @@ document.addEventListener("click", async event => {
     }
   }
 
-  if (event.target.matches(".deal-button")) {
-    alert("Affiliate link placeholder. Replace the link in script.js when your affiliate URL is ready.");
-  }
-});
 
 document.getElementById("year").textContent = new Date().getFullYear();
 renderDeals();
