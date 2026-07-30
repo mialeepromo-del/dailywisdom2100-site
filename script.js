@@ -1,5 +1,18 @@
 const deals = [
   {
+    title: "FREE Chips & Guac", 
+    category: "Food",
+    benefit: "FREE",
+    description: "Get FREE Chips & Guac with the purchase of any entrée when you order through the Chipotle website or mobile app.",
+    expires: "Ends Aug 1, 2026",
+    expiryDate: "2026-08-01",
+    posted: "Newest",
+    image: "images/ChatGPT Image Jul 30, 2026, 08_18_50 AM.png",
+    emoji: "🥑",
+    code: "AVO2026",
+    affiliateLink: "https://www.chipotle.com/#menu"
+  },
+  {
     title: "50% Off Menu-Priced Pizzas", 
     category: "Food",
     benefit: "50% OFF",
