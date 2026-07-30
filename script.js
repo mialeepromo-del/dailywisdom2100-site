@@ -39,7 +39,7 @@ const deals = [
   },
   {
     title: "$5 OFF Movie ticket with Apple Pay",
-    category: "Movie",
+    category: "Movies",
     benefit: "$5 OFF",
     description:
       "Get $5 OFF movie tickets when you pay with Apple Pay on Fandango every Wednesday through August 19, 2026.",
