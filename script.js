@@ -17,7 +17,7 @@ const deals = [
     benefit: "50% OFF",
     description:
       "Celebrate on July 30 with ANY slice of cheesecake for 50% OFF when you dine in at The Cheesecake Factory.",
-    expires: "Ends July 30",
+    expires: "Ends July 30, 2026",
     posted: "Today",
     image: "images/ChatGPT Image Jul 28, 2026, 02_26_19 PM.png",
     emoji: "🍰",
@@ -38,16 +38,17 @@ const deals = [
     affiliateLink: "https://www.giftory.com/products/regal-premiere-movie-tickets-for-two-with-popcorn"
   },
   {
-    title: "Free Treat With App Membership",
-    category: "Freebies",
-    benefit: "FREEBIE",
+    title: "$5 OFF Movie ticket with Apple Pay",
+    category: "Movie",
+    benefit: "$5 OFF",
     description:
-      "A sample free food or rewards app promotion for your Instagram followers.",
-    expires: "One day only",
-    posted: "Yesterday",
+      "Get $5 OFF movie tickets when you pay with Apple Pay on Fandango every Wednesday through August 19, 2026.",
+    expires: "Ends August 19, 2026",
+    posted: "June 24, 2026",
+    image: "images/ChatGPT Image Jun 24, 2026, 08_17_35 PM.png",
     emoji: "🎁",
-    code: "App required",
-    affiliateLink: "#affiliate-link-placeholder"
+    code: "APPLEPAYWED",
+    affiliateLink: "https://www.fandangomovietickets.com/applepaywednesday/"
   },
   {
     title: "Hotel Booking Bonus Offer",
