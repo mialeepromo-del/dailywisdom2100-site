@@ -6,7 +6,7 @@ const deals = [
     description: "50% off all menu-priced pizzas.",
     expires: "Ends Aug 2",
     posted: "Newest",
-    image: "images/ChatGPT Image Jul 28, 2026, 02_36_31 PM",
+    image: "images/ChatGPT Image Jul 28, 2026, 02_36_31 PM.png",
     emoji: "🍕",
     code: "No code",
     affiliateLink: "https://www.dominos.com/en/deals/9413"
@@ -18,8 +18,9 @@ const deals = [
     description:
       "Celebrate on July 30 with ANY slice of cheesecake for 50% OFF when you dine in at The Cheesecake Factory.",
     expires: "Ends July 30",
-    posted: "",
-    image: "ChatGPT Image Jul 28, 2026, 02_26_19 PM",
+    posted: "Today",
+    image: "images/ChatGPT Image Jul 28, 2026, 02_26_19 PM.png",
+    emoji: "🍰",
     code: "No code",
     affiliateLink: "https://www.thecheesecakefactory.com/whats-new"
   },
