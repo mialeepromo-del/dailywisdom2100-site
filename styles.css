@@ -115,3 +115,23 @@ h2 { font-size:clamp(2rem, 4vw, 3.2rem); }
   .section { padding:54px 0; }
   .section-heading, .footer-inner { align-items:flex-start; flex-direction:column; }
 }
+.deal-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.deal-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 72px;
+}
+
+.deal-button.placeholder {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
