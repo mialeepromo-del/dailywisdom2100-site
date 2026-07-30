@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily Wisdom Deals — freebies, food deals, gift cards, movies, travel, and smart finds from @dailywisdom2100." />
+  <title>Daily Wisdom Deals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Daily Wisdom Deals home">
+        <span class="brand-mark">DW</span>
+        <span>
+          <strong>Daily Wisdom Deals</strong>
+          <small>@dailywisdom2100</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#latest">Latest</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Deals, Freebies & Smart Finds</p>
+          <h1>Find the deal you saw on Instagram.</h1>
+          <p class="hero-copy">Browse the newest offers from <strong>@dailywisdom2100</strong>, including food promotions, free movie codes, gift card discounts, travel deals, and local finds.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#latest">Browse Latest Deals</a>
+            <a class="button secondary" href="https://www.instagram.com/dailywisdom2100/" target="_blank" rel="noopener">Visit Instagram</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="How it works">
+          <span class="hero-card-label">How it works</span>
+          <ol>
+            <li>See a deal on Instagram</li>
+            <li>Open the link in bio</li>
+            <li>Find the matching deal here</li>
+            <li>Tap “Get This Deal”</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="search-section" aria-label="Search deals">
+      <div class="container search-wrap">
+        <input id="searchInput" type="search" placeholder="Search Domino's, movie, gift card..." aria-label="Search deals" />
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="Food">Food</option>
+          <option value="Freebies">Freebies</option>
+          <option value="Gift Cards">Gift Cards</option>
+          <option value="Movies">Movies</option>
+          <option value="Travel">Travel</option>
+          <option value="Local">LA / OC Local</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="latest" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Freshly posted</p>
+            <h2>Latest Instagram Deals</h2>
+          </div>
+          <p id="dealCount" class="deal-count"></p>
+        </div>
+        <div id="dealGrid" class="deal-grid"></div>
+        <p id="emptyState" class="empty-state" hidden>No matching deals found.</p>
+      </div>
+    </section>
+
+    <section id="categories" class="section soft-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Browse faster</p>
+            <h2>Popular Categories</h2>
+          </div>
+        </div>
+        <div class="category-grid">
+          <button class="category-card" data-category="Food"><span>🍕</span><strong>Food Deals</strong><small>Restaurants and app offers</small></button>
+          <button class="category-card" data-category="Freebies"><span>🎁</span><strong>Freebies</strong><small>Free items and giveaways</small></button>
+          <button class="category-card" data-category="Gift Cards"><span>💳</span><strong>Gift Cards</strong><small>Discounted digital gift cards</small></button>
+          <button class="category-card" data-category="Movies"><span>🎬</span><strong>Movies</strong><small>Promo codes and screenings</small></button>
+          <button class="category-card" data-category="Travel"><span>✈️</span><strong>Travel</strong><small>Hotels, flights, and rewards</small></button>
+          <button class="category-card" data-category="Local"><span>📍</span><strong>LA / OC Local</strong><small>Local events and promotions</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About this site</p>
+          <h2>Simple deals without the clutter.</h2>
+        </div>
+        <div class="about-copy">
+          <p>Daily Wisdom Deals collects promotions shared on <strong>@dailywisdom2100</strong> so visitors can quickly find the matching offer and redemption details.</p>
+          <p class="disclosure"><strong>Affiliate disclosure:</strong> Some links may become affiliate links in the future. Daily Wisdom Deals may earn a commission at no additional cost to you.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Daily Wisdom Deals</p>
+      <a href="https://www.instagram.com/dailywisdom2100/" target="_blank" rel="noopener">@dailywisdom2100</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
