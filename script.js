@@ -6,9 +6,9 @@ const deals = [
     description: "A sample food deal card. Replace this with the latest promotion details.",
     expires: "Ends Aug 2",
     posted: "Newest",
-    emoji: "🍕",
+    image: "images/ChatGPT Image Jul 15, 2026, 03_29_10 PM.png",
     code: "No code",
-    affiliateLink: "#affiliate-link-placeholder"
+    affiliateLink: "https://www.dominos.com/en/deals/9413"
   },
   {
     title: "Free Movie Promo Code",
