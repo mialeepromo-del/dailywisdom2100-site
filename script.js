@@ -57,17 +57,18 @@ const deals = [
       "https://www.fandangomovietickets.com/applepaywednesday/"
   },
   {
-    title: "Hotel Booking Bonus Offer",
-    category: "Travel",
-    benefit: "TRAVEL",
+    title: "Free Handcrafted Drink Every Monday",
+    category: "Food",
+    benefit: "Free",
     description:
-      "Use this space for hotel, airline, or travel rewards deals when available.",
-    expires: "Check dates",
-    expiryDate: "",
-    posted: "Jul 28",
-    emoji: "✈️",
-    code: "TBD",
-    affiliateLink: "#affiliate-link-placeholder"
+      "Get a FREE handcrafted beverage at Capital One Café every Mondays!",
+    expires: "Ends September 7, 2026",
+    expiryDate: "2026-09-07",
+    posted: "May 13, 2026",
+    image: "images/GEjMF.png",
+    emoji: "☕",
+    code: "QR Code",
+    affiliateLink: "https://coffree.capitalone.com/sms/?mc=BP&cid=fzqpufjqcf"
   },
   {
     title: "LA / OC Weekend Promotion",
