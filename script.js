@@ -61,7 +61,7 @@ const deals = [
     category: "Food",
     benefit: "Free",
     description:
-      "Get a FREE handcrafted beverage at Capital One Café every Mondays!",
+      "Get a FREE handcrafted beverage at Capital One Café every Monday!",
     expires: "Ends September 7, 2026",
     expiryDate: "2026-09-07",
     posted: "May 13, 2026",
