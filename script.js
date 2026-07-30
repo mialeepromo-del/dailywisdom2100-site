@@ -12,16 +12,16 @@ const deals = [
     affiliateLink: "https://www.dominos.com/en/deals/9413"
   },
   {
-    title: "Free Movie Promo Code",
-    category: "Movies",
-    benefit: "FREE",
+    title: "Half Price Cheesecake",
+    category: "Food",
+    benefit: "50% OFF",
     description:
-      "Use this card for free screening codes, ticket offers, or limited movie promotions.",
-    expires: "Limited supply",
-    posted: "Today",
-    emoji: "🎬",
-    code: "TBD",
-    affiliateLink: "#affiliate-link-placeholder"
+      "Celebrate on July 30 with ANY slice of cheesecake for 50% OFF when you dine in at The Cheesecake Factory.",
+    expires: "Ends July 30",
+    posted: "",
+    image: "ChatGPT Image Jul 28, 2026, 02_26_19 PM",
+    code: "No code",
+    affiliateLink: "https://www.thecheesecakefactory.com/whats-new"
   },
   {
     title: "25% Off Digital Gift Card",
