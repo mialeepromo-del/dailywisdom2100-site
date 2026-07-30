@@ -65,7 +65,7 @@ const deals = [
     expires: "Ends September 7, 2026",
     expiryDate: "2026-09-07",
     posted: "May 13, 2026",
-    image: "images/GEjMF.png",
+    image: "images/GEjMF.jpg",
     emoji: "☕",
     code: "QR Code",
     affiliateLink: "https://coffree.capitalone.com/sms/?mc=BP&cid=fzqpufjqcf"
