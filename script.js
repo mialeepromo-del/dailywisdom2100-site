@@ -25,16 +25,17 @@ const deals = [
     affiliateLink: "https://www.thecheesecakefactory.com/whats-new"
   },
   {
-    title: "25% Off Digital Gift Card",
+    title: "Movie night for less!",
     category: "Gift Cards",
-    benefit: "25% OFF",
+    benefit: "$19.20–$20.80",
     description:
-      "Highlight member-only gift card discounts and limited-quantity promotions here.",
+      "Grab the Regal Premiere Movie Package for 2 from Giftory for $19.20–$20.80 (price varies by state).",
     expires: "While supplies last",
     posted: "Today",
+    image: "images/ChatGPT Image Jul 25, 2026, 04_55_24 PM.png",
     emoji: "💳",
-    code: "Member offer",
-    affiliateLink: "#affiliate-link-placeholder"
+    code: "REGALMOVIE20",
+    affiliateLink: "https://www.giftory.com/products/regal-premiere-movie-tickets-for-two-with-popcorn"
   },
   {
     title: "Free Treat With App Membership",
