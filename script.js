@@ -1,6 +1,6 @@
 const deals = [
   {
-    title: "50% Off Menu-Priced Pizzas",
+    title: "50% Off Menu-Priced Pizzas", 
     category: "Food",
     benefit: "50% OFF",
     description: "50% off all menu-priced pizzas.",
