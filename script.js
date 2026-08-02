@@ -1,5 +1,18 @@
 const deals = [
   {
+    title: "FREE 2 Tickets for Elijah Peel", 
+    category: "Movies",
+    benefit: "FREE",
+    description: "Watch Elijah Peel with up to 2 complimentary movie tickets through Fandango while supplies last.",
+    expires: "Ends Aug 31, 2026 or While Supplies Last",
+    expiryDate: "2026-08-31",
+    posted: "Newest",
+    image: "images/ChatGPT Image Aug 2, 2026, 11_30_13 AM.png",
+    emoji: "🎬",
+    code: "ELIJAHFREE",
+    affiliateLink: "https://www.fandango.com/elijah-peel-2026-246405/movie-overview"
+  },
+  {
     title: "FREE Chips & Guac", 
     category: "Food",
     benefit: "FREE",
