@@ -7,7 +7,7 @@ const deals = [
     expires: "Ends Aug 31, 2026 or While Supplies Last",
     expiryDate: "2026-08-31",
     posted: "Newest",
-    image: "images/ChatGPT Image Aug 2, 2026, 11_30_13 AM.png",
+    image: "images/Aug 2, 2026, 11_37_41 AM.png",
     emoji: "🎬",
     code: "ELIJAHFREE",
     affiliateLink: "https://www.fandango.com/elijah-peel-2026-246405/movie-overview"
