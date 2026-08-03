@@ -1,5 +1,18 @@
 const deals = [
   {
+    title: "FREE Chicken Shack", 
+    category: "Food",
+    benefit: "FREE",
+    description: "Get a FREE Chicken Shack with a $10 minimum purchase every Sunday.",
+    expires: "Ends December 27, 2026",
+    expiryDate: "2026-12-27",
+    posted: "Aug 2, 2026",
+    image: "images/ChatGPT Image Aug 2, 2026, 07_31_34 PM.png",
+    emoji: "🐔",
+    code: "CHICKENSUNDAY",
+    affiliateLink: "https://shakeshack.com/national-regional-offers#/"
+  },
+  {
     title: "FREE 2 Tickets for Elijah Peel", 
     category: "Movies",
     benefit: "FREE",
