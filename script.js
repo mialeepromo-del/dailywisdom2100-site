@@ -1,5 +1,18 @@
 const deals = [
   {
+    title: "Corner Bakery Cafe – Aug 2026 Coupon ", 
+    category: "Food",
+    benefit: "$7.99",
+    description: "Choose Two for $7.99 at participating Corner Bakery Cafe in CA during August 2026",
+    expires: "Ends Auguest 31, 2026",
+    expiryDate: "2026-08-31",
+    posted: "Aug 2, 2026",
+    image: "images/2026-CB-CHOOSE-TWO-DINNER-AD-7.99-Cali-Cafes-aug-1051x2048",
+    emoji: "🥪",
+    code: "1530",
+    affiliateLink: "https://cornerbakerycafe.com/p/202607312280/"
+  },
+  {
     title: "FREE Chicken Shack", 
     category: "Food",
     benefit: "FREE",
