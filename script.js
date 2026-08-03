@@ -7,7 +7,7 @@ const deals = [
     expires: "Ends Auguest 31, 2026",
     expiryDate: "2026-08-31",
     posted: "Aug 2, 2026",
-    image: "images/2026-CB-CHOOSE-TWO-DINNER-AD-7.99-Cali-Cafes-aug-1051x2048",
+    image: "images/2026-CB-CHOOSE-TWO-DINNER-AD-7.99-Cali-Cafes-aug-1051x2048.jpg",
     emoji: "🥪",
     code: "1530",
     affiliateLink: "https://cornerbakerycafe.com/p/202607312280/"
