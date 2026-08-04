@@ -1,5 +1,18 @@
 const deals = [
   {
+    title: "Medium Sea Salt Coffee for just $0.85", 
+    category: "Food",
+    benefit: "$0.85",
+    description: "85°C Bakery Cafe App members can enjoy a Medium Sea Salt Coffee for just $0.85 all month long.",
+    expires: "Ends Auguest 31, 2026",
+    expiryDate: "2026-08-31",
+    posted: "Aug 4, 2026",
+    image: "images/ChatGPT Image Aug 4, 2026, 04_54_50 PM.png",
+    emoji: "☕",
+    code: "85°C App Members only",
+    affiliateLink: "https://www.85cbakerycafe.com/85app/"
+  },
+  {
     title: "FREE Habit Double Char with $15+ Order ", 
     category: "Food",
     benefit: "FREE",
