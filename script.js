@@ -1,6 +1,6 @@
 const deals = [
   {
-    title: "FREE Habut Double Char with $15+ Order ", 
+    title: "FREE Habit Double Char with $15+ Order ", 
     category: "Food",
     benefit: "FREE",
     description: "CharClub members get a free Double Char or Double Char with cheese with a qualifying $15 minimum purchase.",
