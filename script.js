@@ -1,5 +1,18 @@
 const deals = [
   {
+    title: "FREE Habut Double Char with $15+ Order ", 
+    category: "Food",
+    benefit: "FREE",
+    description: "CharClub members get a free Double Char or Double Char with cheese with a qualifying $15 minimum purchase.",
+    expires: "Valid for 7 days after coupon issued",
+    expiryDate: "2026-08-11",
+    posted: "Aug 4, 2026",
+    image: "images/ChatGPT Image Aug 4, 2026, 03_41_00 PM.png",
+    emoji: "🍔",
+    code: "CharClub Members Only",
+    affiliateLink: "https://order.habitburger.com/my-offers?lid=zss2v964mh5a/"
+  },
+  {
     title: "Corner Bakery Cafe – Aug 2026 Coupon ", 
     category: "Food",
     benefit: "$7.99",
