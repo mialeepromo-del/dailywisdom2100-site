@@ -1,5 +1,19 @@
 const deals = [
 {
+  title: "FREE Panty",
+  category: "Freebies",
+  benefit: "FREE",
+  description: "Get one FREE panty at participating Victoria's Secret stores for National Underwear Day. No purchase required.",
+  expires: "Ends August 5, 2026",
+  expiryDate: "2026-08-05",
+  posted: "Aug 5, 2026",
+  image: "images/ChatGPT Image Aug 5, 2026, 10_53_36 AM.png",
+  emoji: "🩲",
+  code: "In-Store Only",
+  affiliateLink: "https://www.victoriassecret.com/us/"
+},
+  
+  {
   title: "NOMAD V Contemporary Art Pop-Up",
   category: "Local",
   benefit: "FREE",
