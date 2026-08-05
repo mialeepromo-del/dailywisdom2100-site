@@ -1,4 +1,17 @@
 const deals = [
+{
+  title: "NOMAD V Contemporary Art Pop-Up",
+  category: "Local Events",
+  benefit: "FREE",
+  description: "Explore contemporary artwork from more than 140 Southern California artists at NOMAD V in Torrance.",
+  expires: "Ends August 9, 2026",
+  expiryDate: "2026-08-09",
+  posted: "Aug 4, 2026",
+  image: "images/ChatGPT Image Aug 4, 2026, 10_31_39 PM",
+  emoji: "🎨",
+  code: "Free Admission",
+  affiliateLink: "https://www.torranceartmuseum.com/nomad-v"
+},
   {
     title: "Medium Sea Salt Coffee for just $0.85", 
     category: "Food",
