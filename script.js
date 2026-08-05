@@ -1,7 +1,7 @@
 const deals = [
 {
   title: "NOMAD V Contemporary Art Pop-Up",
-  category: "Local Events",
+  category: "Local",
   benefit: "FREE",
   description: "Explore contemporary artwork from more than 140 Southern California artists at NOMAD V in Torrance.",
   expires: "Ends August 9, 2026",
