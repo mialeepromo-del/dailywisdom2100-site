@@ -161,19 +161,7 @@ const deals = [
     code: "QR Code",
     affiliateLink: "https://coffree.capitalone.com/sms/?mc=BP&cid=fzqpufjqcf"
   },
-  {
-    title: "LA / OC Weekend Promotion",
-    category: "Local",
-    benefit: "LOCAL",
-    description:
-      "Feature local restaurant offers, events, and adult programs in Los Angeles and Orange County.",
-    expires: "This weekend",
-    expiryDate: "",
-    posted: "Jul 27",
-    emoji: "📍",
-    code: "See details",
-    affiliateLink: "#affiliate-link-placeholder"
-  }
+
 ];
 
 const grid = document.getElementById("dealGrid");
