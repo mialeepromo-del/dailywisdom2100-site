@@ -7,7 +7,7 @@ const deals = [
   expires: "Ends August 9, 2026",
   expiryDate: "2026-08-09",
   posted: "Aug 4, 2026",
-  image: "images/ChatGPT Image Aug 4, 2026, 10_31_39.png",
+  image: "images/ChatGPT Image Aug 4, 2026, 10_31_39 PM.png",
   emoji: "🎨",
   code: "Free Admission",
   affiliateLink: "https://www.torranceartmuseum.com/nomad-v"
