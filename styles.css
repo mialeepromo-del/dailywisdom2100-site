@@ -601,3 +601,56 @@ h2 {
 .expired-button {
   background: #8f8d86;
 }
+/* Contact section */
+
+.contact-section-wrapper {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+
+.contact-section {
+  max-width: 760px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 18px;
+}
+
+.contact-copy {
+  max-width: 650px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+  font-size: 1.03rem;
+}
+
+.contact-note {
+  max-width: 620px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Footer links */
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    gap: 12px 18px;
+  }
+}
