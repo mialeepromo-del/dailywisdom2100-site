@@ -139,7 +139,7 @@ const deals = [
     benefit: "FREE",
     description: "Watch Elijah Peel with up to 2 complimentary movie tickets through Fandango while supplies last.",
     expires: "Ends Aug 31, 2026 or While Supplies Last",
-    expiryDate: "2026-08-31",
+    expiryDate: "2026-08-07",
     posted: "Aug 2, 2026",
     image: "images/Aug 2, 2026, 11_37_41 AM.png",
     emoji: "🎬",
