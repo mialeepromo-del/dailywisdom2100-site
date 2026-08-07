@@ -1,5 +1,18 @@
 const deals = [
 {
+  title: "Buy One Bowl, Get the 2nd 50% OFF",
+  category: "Food",
+  benefit: "50% OFF",
+  description: "Nékter members can buy one bowl and get the second bowl 50% off. Check the Nékter app for the redeemable coupon.",
+  expires: "Ends August 9, 2026",
+  expiryDate: "2026-08-09",
+  posted: "Aug 7, 2026",
+  image: "images/ChatGPT Image Aug 7, 2026, 10_56_10 AM",
+  emoji: "🥣",
+  code: "Member Exclusive — Check App",
+  affiliateLink: "https://www.nekterjuicebar.com/pages/rewards-program-1"
+},
+  {
   title: "Buy a $25 Gift Card, Get 2 Pretzels",
   category: "Food",
   benefit: "2 FREE Pretzels",
