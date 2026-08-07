@@ -7,7 +7,7 @@ const deals = [
   expires: "Ends August 9, 2026",
   expiryDate: "2026-08-09",
   posted: "Aug 7, 2026",
-  image: "images/ChatGPT Image Aug 7, 2026, 10_56_10 AM",
+  image: "images/ChatGPT Image Aug 7, 2026, 10_56_10 AM.png",
   emoji: "🥣",
   code: "Member Exclusive — Check App",
   affiliateLink: "https://www.nekterjuicebar.com/pages/rewards-program-1"
