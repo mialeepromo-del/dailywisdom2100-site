@@ -1,5 +1,19 @@
 const deals = [
 {
+  title: "Tongva Twilight: Sounds & Cinema",
+  category: "Local",
+  benefit: "FREE",
+  description: "Enjoy free live music and outdoor movies every Saturday evening at Tongva Park in Santa Monica.",
+  expires: "Ends September 12",
+  expiryDate: "2026-09-12",
+  posted: "Aug 6, 2026",
+  image: "images/ChatGPT Image Aug 6, 2026, 08_54_53 PM.png",
+  emoji: "🎬",
+  code: "Free Admission",
+  affiliateLink: "https://www.santamonica.gov/events?eventType=4998w6ff4ne8y045zt7chg4kxg"
+},
+  
+  {
   title: "FREE Panty",
   category: "Freebies",
   benefit: "FREE",
