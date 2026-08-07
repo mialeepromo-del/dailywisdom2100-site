@@ -1,5 +1,19 @@
 const deals = [
-{
+  {
+  title: "FREE NIMRODS Movie Tickets",
+  category: "Movies",
+  benefit: "FREE",
+  description: "Get up to 2 FREE tickets to NIMRODS from Atom Tickets with promo code NIMRODSATOM. While supplies last.",
+  expires: "Ends August 23, 2026",
+  expiryDate: "2026-08-23",
+  posted: "Aug 7, 2026",
+  image: "images/ChatGPT Image Aug 7, 2026, 11_43_16 AM.png",
+  emoji: "🎬",
+  code: "NIMRODSATOM",
+  affiliateLink: "https://www.atomtickets.com/movies/nimrods/386514"
+},
+  
+  {
   title: "Buy One Bowl, Get the 2nd 50% OFF",
   category: "Food",
   benefit: "50% OFF",
