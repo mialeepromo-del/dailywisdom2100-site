@@ -1,5 +1,19 @@
 const deals = [
 {
+  title: "Buy a $25 Gift Card, Get 2 Pretzels",
+  category: "Food",
+  benefit: "2 FREE Pretzels",
+  description: "Buy a $25 Auntie Anne's gift card online and receive 2 Original Pretzels",
+  expires: "Ends August 31, 2026",
+  expiryDate: "2026-08-31",
+  posted: "Aug 6, 2026",
+  image: "images/ChatGPT Image Aug 6, 2026, 09_20_25 PM.png",
+  emoji: "🥨",
+  code: "Online Only",
+  affiliateLink: "https://www.auntieannes.com/gift-cards"
+},
+  
+  {
   title: "Tongva Twilight: Sounds & Cinema",
   category: "Local",
   benefit: "FREE",
