@@ -1,5 +1,19 @@
 const deals = [
   {
+  title: "Buy 1 Ticket, Get 1 FREE – The Magic Faraway Tree",
+  category: "Movies",
+  benefit: "BOGO FREE",
+  description: "Buy one ticket to The Magic Faraway Tree and get a second ticket free for opening weekend showtimes, August 21–23.",
+  expires: "Ends August 23, 2026",
+  expiryDate: "2026-08-23",
+  posted: "Aug 9, 2026",
+  image: "images/ChatGPT Image Aug 9, 2026, 02_53_28 PM.png",
+  emoji: "🎬",
+  code: "MAGICTREE",
+  affiliateLink: "https://www.fandango.com/the-magic-faraway-tree-2026-245875/movie-overview"
+},
+  
+  {
   title: "FREE NIMRODS Movie Tickets",
   category: "Movies",
   benefit: "FREE",
