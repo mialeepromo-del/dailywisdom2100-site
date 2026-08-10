@@ -1,5 +1,19 @@
 const deals = [
   {
+  title: "$10 OFF $15+ Grubhub Order",
+  category: "Food",
+  benefit: "$10 OFF",
+  description: "Eligible lapsed Grubhub customers can get $10 off a $15+ delivery order with promo code MISSINGYOU10.",
+  expires: "Ends September 30, 2026",
+  expiryDate: "2026-09-30",
+  posted: "Aug 10, 2026",
+  postingDate: "2026-08-10",
+  image: "images/ChatGPT Image Aug 10, 2026, 04_13_54 PM.png",
+  emoji: "🍽️",
+  code: "MISSINGYOU10",
+  affiliateLink: "https://www.grubhub.com/"
+},
+  {
   title: "FREE Dunkin’ Refresher 🧡",
   category: "Food",
   benefit: "FREE",
