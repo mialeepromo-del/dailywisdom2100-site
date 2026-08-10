@@ -7,6 +7,7 @@ const deals = [
   expires: "Ends August 10, 2026",
   expiryDate: "2026-08-10",
   posted: "Aug 10, 2026",
+  postingDate: "2026-08-10",
   image: "images/ChatGPT Image Aug 10, 2026, 10_37_39 AM.png",
   emoji: "🥤",
   code: "FRSHDROP2",
@@ -21,6 +22,7 @@ const deals = [
   expires: "Ends August 23, 2026",
   expiryDate: "2026-08-23",
   posted: "Aug 9, 2026",
+  postingDate: "2026-08-09",
   image: "images/ChatGPT Image Aug 9, 2026, 02_53_28 PM.png",
   emoji: "🎬",
   code: "MAGICTREE",
@@ -35,6 +37,7 @@ const deals = [
   expires: "Ends August 23, 2026",
   expiryDate: "2026-08-23",
   posted: "Aug 7, 2026",
+  postingDate: "2026-08-07",
   image: "images/ChatGPT Image Aug 7, 2026, 11_43_16 AM.png",
   emoji: "🎬",
   code: "NIMRODSATOM",
@@ -49,6 +52,7 @@ const deals = [
   expires: "Ends August 9, 2026",
   expiryDate: "2026-08-09",
   posted: "Aug 7, 2026",
+  postingDate: "2026-08-07",
   image: "images/ChatGPT Image Aug 7, 2026, 10_56_10 AM.png",
   emoji: "🥣",
   code: "Member Exclusive — Check App",
@@ -62,6 +66,7 @@ const deals = [
   expires: "Ends August 31, 2026",
   expiryDate: "2026-08-31",
   posted: "Aug 6, 2026",
+  postingDate: "2026-08-06",
   image: "images/ChatGPT Image Aug 6, 2026, 09_20_25 PM.png",
   emoji: "🥨",
   code: "Online Only",
@@ -76,6 +81,7 @@ const deals = [
   expires: "Ends September 12",
   expiryDate: "2026-09-12",
   posted: "Aug 6, 2026",
+  postingDate: "2026-08-06",
   image: "images/ChatGPT Image Aug 6, 2026, 08_54_53 PM.png",
   emoji: "🎬",
   code: "Free Admission",
@@ -90,6 +96,7 @@ const deals = [
   expires: "Ends August 5, 2026",
   expiryDate: "2026-08-05",
   posted: "Aug 5, 2026",
+  postingDate: "2026-08-05",
   image: "images/ChatGPT Image Aug 5, 2026, 10_53_36 AM.png",
   emoji: "🩲",
   code: "In-Store Only",
@@ -104,6 +111,7 @@ const deals = [
   expires: "Ends August 9, 2026",
   expiryDate: "2026-08-09",
   posted: "Aug 4, 2026",
+  postingDate: "2026-08-04",
   image: "images/ChatGPT Image Aug 4, 2026, 10_31_39 PM.png",
   emoji: "🎨",
   code: "Free Admission",
@@ -117,6 +125,7 @@ const deals = [
     expires: "Ends Auguest 31, 2026",
     expiryDate: "2026-08-31",
     posted: "Aug 4, 2026",
+    postingDate: "2026-08-04",
     image: "images/ChatGPT Image Aug 4, 2026, 04_54_50 PM.png",
     emoji: "☕",
     code: "85°C App Members only",
@@ -130,6 +139,7 @@ const deals = [
     expires: "Valid for 7 days after coupon issued",
     expiryDate: "2026-08-11",
     posted: "Aug 4, 2026",
+    postingDate: "2026-08-04",
     image: "images/ChatGPT Image Aug 4, 2026, 03_41_00 PM.png",
     emoji: "🍔",
     code: "CharClub Members Only",
@@ -143,6 +153,7 @@ const deals = [
     expires: "Ends Auguest 31, 2026",
     expiryDate: "2026-08-31",
     posted: "Aug 2, 2026",
+    postingDate: "2026-08-02",
     image: "images/2026-CB-CHOOSE-TWO-DINNER-AD-7.99-Cali-Cafes-aug-1051x2048.jpg",
     emoji: "🥪",
     code: "1530",
@@ -156,6 +167,7 @@ const deals = [
     expires: "Ends December 27, 2026",
     expiryDate: "2026-12-27",
     posted: "Aug 2, 2026",
+    postingDate: "2026-08-02",
     image: "images/ChatGPT Image Aug 2, 2026, 07_31_34 PM.png",
     emoji: "🐔",
     code: "CHICKENSUNDAY",
@@ -169,6 +181,7 @@ const deals = [
     expires: "Ends Aug 31, 2026 or While Supplies Last",
     expiryDate: "2026-08-06",
     posted: "Aug 2, 2026",
+    postingDate: "2026-08-02",
     image: "images/Aug 2, 2026, 11_37_41 AM.png",
     emoji: "🎬",
     code: "ELIJAHFREE",
@@ -182,6 +195,7 @@ const deals = [
     expires: "Ends Aug 1, 2026",
     expiryDate: "2026-08-01",
     posted: "Jul 30, 2026",
+    postingDate: "2026-07-30",
     image: "images/ChatGPT Image Jul 30, 2026, 08_18_50 AM.png",
     emoji: "🥑",
     code: "AVO2026",
@@ -195,6 +209,7 @@ const deals = [
     expires: "Ends Aug 2, 2026",
     expiryDate: "2026-08-02",
     posted: "Jul 28, 2026",
+    postingDate: "2026-07-28",
     image: "images/ChatGPT Image Jul 28, 2026, 02_36_31 PM.png",
     emoji: "🍕",
     code: "No code",
@@ -209,6 +224,7 @@ const deals = [
     expires: "Ends July 30, 2026",
     expiryDate: "2026-07-30",
     posted: "Jul 28, 2026",
+    postingDate: "2026-07-28",
     image: "images/ChatGPT Image Jul 28, 2026, 02_26_19 PM.png",
     emoji: "🍰",
     code: "No code",
@@ -223,6 +239,7 @@ const deals = [
     expires: "While supplies last",
     expiryDate: "",
     posted: "Jul 25, 2026",
+    postingDate: "2026-07-25",
     image: "images/ChatGPT Image Jul 25, 2026, 04_55_24 PM.png",
     emoji: "💳",
     code: "REGALMOVIE20",
@@ -238,6 +255,7 @@ const deals = [
     expires: "Ends August 19, 2026",
     expiryDate: "2026-08-19",
     posted: "June 24, 2026",
+    postingDate: "2026-06-24",
     image: "images/ChatGPT Image Jun 24, 2026, 08_17_35 PM.png",
     emoji: "🎁",
     code: "APPLEPAYWED",
@@ -253,6 +271,7 @@ const deals = [
     expires: "Ends September 7, 2026",
     expiryDate: "2026-09-07",
     posted: "May 13, 2026",
+    postingDate: "2026-05-13",
     image: "images/GEjMF.jpg",
     emoji: "☕",
     code: "QR Code",
@@ -372,20 +391,46 @@ function renderDeals() {
   const search = searchInput.value.toLowerCase().trim();
   const category = categoryFilter.value;
 
-  const filtered = deals.filter(deal => {
+  const filtered = deals
+  .filter(deal => {
     const searchableText = `
       ${deal.title}
       ${deal.category}
+      ${deal.benefit || ""}
       ${deal.description}
       ${deal.code}
+      ${deal.expires || ""}
     `.toLowerCase();
 
-    const matchesSearch = searchableText.includes(search);
+    const matchesSearch =
+      searchableText.includes(search);
 
     const matchesCategory =
-      category === "all" || deal.category === category;
+      category === "all" ||
+      deal.category === category;
 
     return matchesSearch && matchesCategory;
+  })
+
+  .sort((a, b) => {
+    const aExpired = isDealExpired(a);
+    const bExpired = isDealExpired(b);
+
+    // Active 딜은 위, expired 딜은 아래
+    if (aExpired !== bExpired) {
+      return aExpired ? 1 : -1;
+    }
+
+    // 같은 상태에서는 최신 posting이 위
+    const aDate = a.postingDate
+      ? new Date(a.postingDate + "T00:00:00")
+      : new Date(0);
+
+    const bDate = b.postingDate
+      ? new Date(b.postingDate + "T00:00:00")
+      : new Date(0);
+
+    return bDate - aDate;
   });
 
   grid.innerHTML = filtered
