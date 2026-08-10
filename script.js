@@ -1,5 +1,19 @@
 const deals = [
   {
+  title: "FREE Dunkin’ Refresher 🧡",
+  category: "Food",
+  benefit: "FREE",
+  description: "1 MILLION FREE Refreshers! Dunkin’ Rewards members can enter code FRSHDROP2 in the Dunkin’ app to unlock a FREE Medium Refresher. Available while supplies last!.",
+  expires: "Ends August 10, 2026",
+  expiryDate: "2026-08-10",
+  posted: "Aug 10, 2026",
+  image: "images/ChatGPT Image Aug 10, 2026, 10_37_39 AM.png",
+  emoji: "🥤",
+  code: "FRSHDROP2",
+  affiliateLink: "https://https://www.dunkindonuts.com/en/dunkinrewards"
+},
+  
+  {
   title: "Buy 1 Ticket, Get 1 FREE – The Magic Faraway Tree",
   category: "Movies",
   benefit: "BOGO FREE",
