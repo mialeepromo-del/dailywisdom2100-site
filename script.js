@@ -1,5 +1,19 @@
 const deals = [
    {
+  title: "$7 2-Entrée Plate at Panda Express in LA/OC/NV After a Dodgers Home Win",
+  category: "Food",
+  benefit: "$7",
+  description: "Panda Rewards members can get a 2-Entrée Plate for $7 the day after an LA Dodgers home-game win with code DODGERSWIN. Participating LA/OC/NV locations only",
+  expires: "Ends August 12, 2026",
+  expiryDate: "2026-08-12",
+  posted: "Aug 12, 2026",
+  postingDate: "2026-08-12",
+  image: "images/ChatGPT Image Aug 12, 2026, 11_42_58 AM.png",
+  emoji: "🥡",
+  code: "DODGERSWIN",
+  affiliateLink: "https://www.pandaexpress.com/promo/dodgerswin"
+},
+   {
   title: "FREE Double Char with $10+ Purchase",
   category: "Food",
   benefit: "FREE",
