@@ -1,4 +1,18 @@
 const deals = [
+   {
+  title: "FREE Double Char with $10+ Purchase",
+  category: "Food",
+  benefit: "FREE",
+  description: "MyHabit members can get a FREE Double Char with a qualifying $10+ purchase at participating Habit Burger & Grill locations.",
+  expires: "Ends August 18, 2026",
+  expiryDate: "2026-08-18",
+  posted: "Aug 12, 2026",
+  postingDate: "2026-08-12",
+  image: "images/ChatGPT Image Aug 12, 2026, 11_26_36 AM.png",
+  emoji: "🍔",
+  code: "MyHabit Members Only",
+  affiliateLink: "https://www.habitburger.com/"
+},
   {
   title: "$10 OFF $15+ Grubhub Order",
   category: "Food",
