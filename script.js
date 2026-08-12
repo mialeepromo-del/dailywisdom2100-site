@@ -1,5 +1,19 @@
 const deals = [
    {
+  title: "Chimac Festival 2026 – Korean Culture Festival",
+  category: "Local",
+  benefit: "$15+",
+  description: "Orange County's all-ages Korean culture festival featuring food booths, K-beauty, community activities, and EDM at night.",
+  expires: "August 14–16, 2026",
+  expiryDate: "2026-08-16",
+  posted: "Aug 12, 2026",
+  postingDate: "2026-08-12",
+  image: "images/ChatGPT Image Aug 12, 2026, 04_16_51 PM.png",
+  emoji: "🎉",
+  code: "Tickets $15–$250",
+  affiliateLink: "https://chimacfest.com/"
+},
+   {
   title: "$7 2-Entrée Plate at Panda Express in LA/OC/NV After a Dodgers Home Win",
   category: "Food",
   benefit: "$7",
