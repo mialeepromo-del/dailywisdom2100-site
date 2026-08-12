@@ -11,7 +11,7 @@ const deals = [
   image: "images/ChatGPT Image Aug 12, 2026, 04_16_51 PM.png",
   emoji: "🎉",
   code: "Tickets $15–$250",
-  affiliateLink: "https://chimacfest.com/"
+  affiliateLink: "https://www.chimac-fest.com/"
 },
    {
   title: "$7 2-Entrée Plate at Panda Express in LA/OC/NV After a Dodgers Home Win",
