@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "$50 Starbucks eGift Card for $45",
+  category: "Gift Cards",
+  benefit: "$5 OFF",
+  description: "Get a $50 Starbucks eGift Card for just $45 through Kroger Gift Cards. Limited quantity available.",
+  expires: "Aug 18, 2026",
+  expiryDate: "2026-08-18",
+  posted: "Aug 13, 2026",
+  postingDate: "2026-08-13",
+  image: "images/ChatGPT Image Aug 13, 2026, 12_47_49 PM.png",
+  emoji: "☕",
+  code: "No Code Needed",
+  affiliateLink: "https://giftcards.kroger.com/deal/starbucks-egift-70"
+},
+   
+   {
   title: "Chimac Festival 2026 – Korean Culture Festival",
   category: "Local",
   benefit: "$15+",
