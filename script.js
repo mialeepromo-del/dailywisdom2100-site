@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "Buy $50+ Panda Express Gift Cards, Get $10 Bonus Card",
+  category: "Gift Cards",
+  benefit: "$10 Bonus Card",
+  description: "Buy $50 or more in Panda Express gift cards online and receive a $10 bonus card.",
+  expires: "Ends September 7, 2026",
+  expiryDate: "2026-09-07",
+  posted: "Aug 17, 2026",
+  postingDate: "2026-08-17",
+  image: "images/ChatGPT Image Aug 17, 2026, 09_49_38 PM.png",
+  emoji: "🐼",
+  code: "No Code Needed",
+  affiliateLink: "https://www.pandaexpress.com/promo/gc-b2s2026?utm_source=email&utm_medium=email&utm_campaign=EM1-Full-Test_1&utm_content=primary_btsgc2026"
+},
+   
+   {
   title: "$50 Starbucks eGift Card for $45",
   category: "Gift Cards",
   benefit: "$5 OFF",
