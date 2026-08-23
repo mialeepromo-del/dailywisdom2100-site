@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "Buy 2 Chipotle Entrées, Get 1 Free",
+  category: "Food",
+  benefit: "1 FREE Entrée",
+  description: "Enjoy 1 free entrée when you buy 2 entrées after 3 PM on digital orders with promo code SUNDAYS.",
+  expires: "Valid Aug 23, Aug 30 & Sep 6, 2026",
+  expiryDate: "2026-09-06",
+  posted: "Aug 23, 2026",
+  postingDate: "2026-08-23",
+  image: "images/ChatGPT Image Aug 23, 2026, 02_57_50 PM.png",
+  emoji: "🌯",
+  code: "SUNDAYS",
+  affiliateLink: "https://www.chipotle.com"
+},
+   
+   {
   title: "Buy $50+ Panda Express Gift Cards, Get $10 Bonus Card",
   category: "Gift Cards",
   benefit: "$10 Bonus Card",
