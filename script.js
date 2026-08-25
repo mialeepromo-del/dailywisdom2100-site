@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "FREE Espresso Certificate",
+  category: "Food",
+  benefit: "FREE",
+  description: "Use promo code EASYCHOICE on August 25 to receive a Free Espresso Certificate at Dunkin.",
+  expires: "August 25, 2026",
+  expiryDate: "2026-08-25",
+  posted: "Aug 25, 2026",
+  postingDate: "2026-08-25",
+  image: "images/ChatGPT Image Aug 25, 2026, 09_04_24 AM.png",
+  emoji: "☕",
+  code: "EASYCHOICE",
+  affiliateLink: "https://www.dunkindonuts.com/"
+},
+   
+   {
   title: "Buy 2 Chipotle Entrées, Get 1 Free",
   category: "Food",
   benefit: "1 FREE Entrée",
