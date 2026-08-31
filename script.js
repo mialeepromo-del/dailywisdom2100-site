@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "DoorDash $100 Gift Card for $85",
+  category: "Gift Cards",
+  benefit: "15% OFF",
+  description: "$100 DoorDash Gift Card available for just $85 at Best Buy. Use it for restaurants, groceries, convenience and more.",
+  expires: "SLimited Time",
+  expiryDate: "2026-09-01",
+  posted: "Aug 31, 2026",
+  postingDate: "2026-08-31",
+  image: "images/ChatGPT Image Aug 31, 2026, 01_27_17 PM.png",
+  emoji: "🍔",
+  code: "No code needed",
+  affiliateLink: "https://www.bestbuy.com/site/entertainment-gift-cards/all-entertainment-gift-cards/pcmcat1514906902468.c?id=pcmcat1514906902468"
+},
+   
+   {
   title: "Orange International Street Fair: Admission FREE",
   category: "Local",
   benefit: "LA/OC",
