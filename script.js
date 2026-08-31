@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "Yogurtland: Buy One, Get One FREE!",
+  category: "Food",
+  benefit: "BOGO",
+  description: "Grab a friend and enjoy a sweet deal at Yogurtland! Buy one yogurt or ice cream and get one of equal or lesser value FREE. In-store only at participating locations.",
+  expires: "August 31, 2026",
+  expiryDate: "2026-08-31",
+  posted: "Aug 30, 2026",
+  postingDate: "2026-08-30",
+  image: "images/ChatGPT Image Aug 25, 2026, 09_04_24 AM.png",
+  emoji: "🍦",
+  code: "In-Store Only",
+  affiliateLink: "https://www.yogurtland.com"
+},
+   
+   {
   title: "FREE Espresso Certificate",
   category: "Food",
   benefit: "FREE",
