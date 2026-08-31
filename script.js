@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "Orange International Street Fair: Admission FREE",
+  category: "Local",
+  benefit: "Free",
+  description: "Enjoy three days of international food, live music, cultural performances, arts, crafts and family fun at Plaza Park in Old Towne Orange. September 4–6, 2026. Admission is free.",
+  expires: "September 6, 2026",
+  expiryDate: "2026-09-06",
+  posted: "Aug 30, 2026",
+  postingDate: "2026-08-30",
+  image: "images/ChatGPT Image Aug 30, 2026, 08_35_13 PM.png",
+  emoji: "🍊",
+  code: "",
+  affiliateLink: "https://www.optevents.org/orangeinternationalstreetfair"
+},
+   
+   {
   title: "Yogurtland: Buy One, Get One FREE!",
   category: "Food",
   benefit: "BOGO",
