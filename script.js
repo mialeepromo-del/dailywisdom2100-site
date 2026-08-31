@@ -2,7 +2,7 @@ const deals = [
    {
   title: "Orange International Street Fair: Admission FREE",
   category: "Local",
-  benefit: "Free",
+  benefit: "LA/OC",
   description: "Enjoy three days of international food, live music, cultural performances, arts, crafts and family fun at Plaza Park in Old Towne Orange. September 4–6, 2026. Admission is free.",
   expires: "September 6, 2026",
   expiryDate: "2026-09-06",
