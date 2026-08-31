@@ -8,7 +8,7 @@ const deals = [
   expiryDate: "2026-08-31",
   posted: "Aug 30, 2026",
   postingDate: "2026-08-30",
-  image: "images/ChatGPT Image Aug 25, 2026, 09_04_24 AM.png",
+  image: "images/ChatGPT Image Aug 30, 2026, 08_16_52 PM",
   emoji: "🍦",
   code: "In-Store Only",
   affiliateLink: "https://www.yogurtland.com"
