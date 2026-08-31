@@ -10,7 +10,7 @@ const deals = [
   postingDate: "2026-08-30",
   image: "images/ChatGPT Image Aug 30, 2026, 08_35_13 PM.png",
   emoji: "🍊",
-  code: "",
+  code: "No code needed",
   affiliateLink: "https://www.optevents.org/orangeinternationalstreetfair"
 },
    
