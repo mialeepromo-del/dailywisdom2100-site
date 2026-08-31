@@ -4,7 +4,7 @@ const deals = [
   category: "Gift Cards",
   benefit: "15% OFF",
   description: "$100 DoorDash Gift Card available for just $85 at Best Buy. Use it for restaurants, groceries, convenience and more.",
-  expires: "SLimited Time",
+  expires: "Limited Time",
   expiryDate: "2026-09-01",
   posted: "Aug 31, 2026",
   postingDate: "2026-08-31",
