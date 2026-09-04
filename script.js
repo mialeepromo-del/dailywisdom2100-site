@@ -1,5 +1,20 @@
 const deals = [
    {
+  title: "Nekter Juice Bar: $5 Off $20",
+  category: "Food",
+  benefit: "$5 OFF",
+  description: "Reward members can get $5 off a $20 purchase at participating Nekter Juice Bar locations.",
+  expires: "September 7, 2026",
+  expiryDate: "2026-09-07",
+  posted: "Sep 4, 2026",
+  postingDate: "2026-09-04",
+  image: "images/ChatGPT Image Sep 4, 2026, 08_29_46 AM.png",
+  emoji: "🥤",
+  code: "No code needed",
+  affiliateLink: "https://www.nekterjuicebar.com/pages/rewards-program-1"
+},
+   
+   {
   title: "DoorDash $100 Gift Card for $85",
   category: "Gift Cards",
   benefit: "15% OFF",
