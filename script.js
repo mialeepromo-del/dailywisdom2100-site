@@ -1,4 +1,19 @@
 const deals = [
+ 
+   {
+  title: "Cinemark: Bring Your Own Bucket — $5 Popcorn",
+  category: "Food",
+  benefit: "$5 POPCORN",
+  description: "For one day only, bring any clean container to a participating Cinemark and they'll fill it with up to 400 oz of popcorn (about two XL popcorns) for $5. Limit one fill per guest.",
+  expires: "September 6, 2026",
+  expiryDate: "2026-09-06",
+  posted: "Sep 4, 2026",
+  postingDate: "2026-09-04",
+  image: "images/cinemark_byob_sept6_ig_post_v2.png",
+  emoji: "🍿",
+  code: "No code needed",
+  affiliateLink: "https://www.cinemark.com/popcornday"
+}
    {
   title: "Nekter Juice Bar: $5 Off $20",
   category: "Food",
