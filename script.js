@@ -1,6 +1,5 @@
 const deals = [
- 
-   {
+    {
   title: "Cinemark: Bring Your Own Bucket — $5 Popcorn",
   category: "Food",
   benefit: "$5 POPCORN",
@@ -13,7 +12,7 @@ const deals = [
   emoji: "🍿",
   code: "No code needed",
   affiliateLink: "https://www.cinemark.com/popcornday"
-}
+},
    {
   title: "Nekter Juice Bar: $5 Off $20",
   category: "Food",
