@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "State Farm One-Time Dividend",
+  category: "Personal Finance",
+  benefit: "Dividend",
+  description: "Had an eligible State Farm auto insurance policy in force at any time during 2025? You may qualify for a one-time dividend payment.",
+  expires: "",
+  expiryDate: "2026-12-31",
+  posted: "Sep 6, 2026",
+  postingDate: "2026-09-06",
+  image: "images/ChatGPT Image Sep 6, 2026, 06_04_10 PM.png",
+  emoji: "💰",
+  code: "No code needed",
+  affiliateLink: "https://sfdividend.com"
+},
+    {
   title: "Cinemark: Bring Your Own Bucket — $5 Popcorn",
   category: "Food",
   benefit: "$5 POPCORN",
