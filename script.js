@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "FREE Medium Pumpkin Spice Signature Latte",
+  category: "Food",
+  benefit: "FREE",
+  description: "Dunkin' Rewards members can get a FREE Medium Pumpkin Spice Signature Latte with purchase today only, September 8, from 2 PM to 6 PM. Offer available through the Dunkin' App.",
+  expires: "September 8, 2026",
+  expiryDate: "2026-09-08",
+  posted: "Sep 8, 2026",
+  postingDate: "2026-09-08",
+  image: "images/ChatGPT Image Sep 8, 2026, 01_46_08 PM.png",
+  emoji: "🎃",
+  code: "APP offer",
+  affiliateLink: "https://www.dunkindonuts.com/"
+},
+    {
   title: "State Farm One-Time Dividend",
   category: "Personal Finance",
   benefit: "Dividend",
