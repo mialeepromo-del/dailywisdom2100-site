@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "FREE BBQ Bacon Char at Habit Burger",
+  category: "Food",
+  benefit: "Free",
+  description: "Habit Burger Rewards Members can get a FREE BBQ Bacon Char when they spend $10 or more. Valid September 9 through September 15, 2026. App offer for Rewards Members only. Taxes and fees excluded.",
+  expires: "September 15, 2026",
+  expiryDate: "2026-09-15",
+  posted: "Sep 9, 2026",
+  postingDate: "2026-09-09",
+  image: "images/ChatGPT Image Sep 9, 2026, 12_30_56 PM.png",
+  emoji: "🍔",
+  code: "APP Offer",
+  affiliateLink: "https://order.habitburger.com/my-offers"
+}, 
+    {
   title: "$5 Amazon Prime Video Credit",
   category: "Movie",
   benefit: "$5 Credit",
