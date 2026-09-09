@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "The Weight — Up to $15 Off at Fandango",
+  category: "Movie",
+  benefit: "$15 off",
+  description: "Get up to $15 off Fandango movie tickets for The Weight using promo code GOLD. Valid for showtimes from September 17 through September 20, 2026. Convenience fee excluded. While supplies last.",
+  expires: "September 9, 2026",
+  expiryDate: "2026-09-09",
+  posted: "Sep 9, 2026",
+  postingDate: "2026-09-09",
+  image: "images/ChatGPT Image Sep 9, 2026, 11_23_33 AM.png",
+  emoji: "🎬",
+  code: "GOLD",
+  affiliateLink: "https://www.fandango.com/the-weight-2026-246804/movie-overview?date=2026-09-17"
+},  
+    {
   title: "FREE 2pc Leg & Thigh Meal at El Pollo Loco",
   category: "Food",
   benefit: "FREE",
