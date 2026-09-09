@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "FREE 2pc Leg & Thigh Meal at El Pollo Loco",
+  category: "Food",
+  benefit: "FREE",
+  description: "Loco Rewards members can get a FREE 2pc Leg & Thigh Meal with the purchase of an a la carte drink for National Grilled Chicken Day.",
+  expires: "September 9, 2026",
+  expiryDate: "2026-09-09",
+  posted: "Sep 9, 2026",
+  postingDate: "2026-09-09",
+  image: "images/ChatGPT Image Sep 9, 2026, 11_07_22 AM.png",
+  emoji: "🍗",
+  code: "APP offer",
+  affiliateLink: "https://www.elpolloloco.com/offers"
+},    
+    {
   title: "FREE Medium Pumpkin Spice Signature Latte",
   category: "Food",
   benefit: "FREE",
