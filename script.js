@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "$5 Amazon Prime Video Credit",
+  category: "Movie",
+  benefit: "$5 Credit",
+  description: "Get a $5 Amazon Prime Video promotional credit. The deal ends September 30, 2026, or while supplies last. Promotional credit expires 30 days after the date issued and may only be applied to eligible Prime Video content sold by Amazon.com Services LLC.",
+  expires: "September 30, 2026",
+  expiryDate: "2026-09-30",
+  posted: "Sep 9, 2026",
+  postingDate: "2026-09-09",
+  image: "images/ChatGPT Image Sep 9, 2026, 12_06_01 PM.png",
+  emoji: "🎬",
+  code: "No code needed",
+  affiliateLink: "https://amzn.to/4ywR9cX"
+},  
+    {
   title: "The Weight — Up to $15 Off at Fandango",
   category: "Movie",
   benefit: "$15 off",
