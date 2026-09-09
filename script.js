@@ -8,7 +8,7 @@ const deals = [
   expiryDate: "2026-09-09",
   posted: "Sep 9, 2026",
   postingDate: "2026-09-09",
-  image: "images/ChatGPT Image Sep 9, 2026, 11_23_39 AM.png",
+  image: "images/ChatGPT Image Sep 9, 2026, 11_29_39 AM.png",
   emoji: "🎬",
   code: "GOLD",
   affiliateLink: "https://www.fandango.com/the-weight-2026-246804/movie-overview?date=2026-09-17"
