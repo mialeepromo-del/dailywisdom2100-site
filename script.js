@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "Kroger: Buy $23 Starbucks eGift Card, Get $2 Bonus",
+  category: "Gift Cards",
+  benefit: "$2 Bonus",
+  description: "Purchase a $23 Starbucks eGift Card and get a $2 Bonus. Maximum bonus of $2 per customer.",
+  expires: "September 20, 2026",
+  expiryDate: "2026-09-20",
+  posted: "Sep 10, 2026",
+  postingDate: "2026-09-10",
+  image: "images/ChatGPT Image Sep 10, 2026, 10_20_07 AM.png",
+  emoji: "💰",
+  code: "No code needed",
+  affiliateLink: "https://giftcards.kroger.com/deal/starbucks-egift-72"
+}, 
+    {
   title: "FREE BBQ Bacon Char at Habit Burger",
   category: "Food",
   benefit: "Free",
