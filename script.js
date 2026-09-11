@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "FREE Runner Movie Ticket",
+  category: "Movies",
+  benefit: "Free",
+  description: "Get a FREE ticket to Runner with promo code ATOMRUNNER. Limit 1 per customer. Showtimes only 9/11–9/13. While supplies last",
+  expires: "September 13, 2026",
+  expiryDate: "2026-09-13",
+  posted: "Sep 11, 2026",
+  postingDate: "2026-09-11",
+  image: "images/ChatGPT Image Sep 11, 2026, 04_31_39 PM.png",
+  emoji: "🎬",
+  code: "ATOMRUNNER",
+  affiliateLink: "https://www.atomtickets.com/movies/runner/378684"
+}, 
+    {
   title: "Lucky Strike Family Fest – Free Bowling & $10 Arcade Card",
   category: "Local",
   benefit: "Free",
