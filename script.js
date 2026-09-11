@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "Lucky Strike Family Fest – Free Bowling & $10 Arcade Card",
+  category: "Local",
+  benefit: "Free",
+  description: "FREE bowling + $10 arcade card for kids",
+  expires: "November 30, 2026",
+  expiryDate: "2026-11-30",
+  posted: "Sep 11, 2026",
+  postingDate: "2026-09-11",
+  image: "images/ChatGPT Image Sep 11, 2026, 03_46_09 PM.png",
+  emoji: "✨",
+  code: "RSVP Required",
+  affiliateLink: "https://www.bowlero.com/family-fest#participating-locations"
+}, 
+    {
   title: "FREE Harbor Boat Tours – Port of Los Angeles",
   category: "Local",
   benefit: "Free",
