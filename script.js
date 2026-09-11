@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "FREE Harbor Boat Tours – Port of Los Angeles",
+  category: "Local",
+  benefit: "Free",
+  description: "Enjoy a FREE narrated boat tour of the Port of Los Angeles! Tours depart every 30 minutes from 11 AM–2 PM on September 26, 2026. First-come, first-served. Includes a pet-friendly tour at 11:30 AM and a Spanish-language tour at 1 PM.",
+  expires: "September 26, 2026",
+  expiryDate: "2026-09-26",
+  posted: "Sep 10, 2026",
+  postingDate: "2026-09-10",
+  image: "images/ChatGPT Image Sep 10, 2026, 07_44_17 PM.png",
+  emoji: "🎟️",
+  code: "No code needed",
+  affiliateLink: "https://portoflosangeles.org/community/events/free-harbor-boat-tours"
+}, 
+    {
   title: "Kroger: Buy $23 Starbucks eGift Card, Get $2 Bonus",
   category: "Gift Cards",
   benefit: "$2 Bonus",
