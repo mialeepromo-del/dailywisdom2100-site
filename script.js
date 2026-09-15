@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "$20 Off $30+ Grubhub Order",
+  category: "Food",
+  benefit: "$20 off",
+  description: "Amazon Prime Members can get $20 off a $30+ Grubhub order with code DEALS20. Prime Members also get 1 year of Grubhub+ free.",
+  expires: "October 05, 2026",
+  expiryDate: "2026-10-05",
+  posted: "Sep 15, 2026",
+  postingDate: "2026-09-15",
+  image: "images/ChatGPT Image Sep 15, 2026, 04_31_17 PM.png",
+  emoji: "🍔",
+  code: "DEALS20",
+  affiliateLink: "https://www.amazon.com/prime/offer/grubhub/prime-deal"
+}, 
+    {
   title: "FREE Runner Movie Ticket",
   category: "Movies",
   benefit: "Free",
