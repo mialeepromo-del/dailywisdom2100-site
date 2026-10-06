@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "Chipotle Gift Card: Get $10 Amazon Credit",
+  category: "Gift Cards",
+  benefit: "$10 Amazon credit",
+  description: "Buy a Chipotle gift card for more than $50 and enter code CHIPOTLE at checkout to receive a $10 Amazon credit. While supplies last.",
+  expires: "October 07, 2026",
+  expiryDate: "2026-10-07",
+  posted: "Oct 06, 2026",
+  postingDate: "2026-10-06",
+  image: "images/Amazon x Chipotle Gift Card Deal.png",
+  emoji: "🌯",
+  code: "CHIPOTLE",
+  affiliateLink: "https://link.amazon/B03qyShPt"
+}, 
+    {
   title: "$20 Off $30+ Grubhub Order",
   category: "Food",
   benefit: "$20 off",
