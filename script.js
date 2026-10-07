@@ -1,5 +1,19 @@
 const deals = [
     {
+  title: "California Clean Air Day — Ride Free",
+  category: "Freebies",
+  benefit: "Free",
+  description: "Ride FREE on Wednesday, October 7, 2026 for California Clean Air Day. No ticket needed. Ride as many times as you like that day. Participating ride services include Metrolink, NCTD, LA Metro, OCTA, LADOT, RTA, and others. Check schedules and plan your trip ahead.",
+  expires: "October 07, 2026",
+  expiryDate: "2026-10-07",
+  posted: "Oct 06, 2026",
+  postingDate: "2026-10-06",
+  image: "images/California Clean Air Day Ride Free.png",
+  emoji: "🚆",
+  code: "NO CODE NEEDED",
+  affiliateLink: "https://metrolinktrains.com/ticketsOverview/discounts/current-promotions/free-rides/free-ride-days/#cleanair"
+}, 
+    {
   title: "Chipotle Gift Card: Get $10 Amazon Credit",
   category: "Gift Cards",
   benefit: "$10 Amazon credit",
