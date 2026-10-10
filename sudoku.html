@@ -244,31 +244,10 @@
       o.connect(g); g.connect(c.destination);
       o.start(t); o.stop(t + dur + 0.05);
     }
-    /* tick-tock arcade BGM: starts on first tap (autoplay policy), stops when muted/hidden */
-    var bgmTimer = null, bgmHigh = true;
-    /* calm wooden clock: clean tick-tock only, unhurried, no melody */
-    function bgmTick(){
-      var f = bgmHigh ? 659.25 : 523.25; /* E5 / C5 */
-      tone(f, 0, .3, 'sine', .15);
-      tone(f*2, 0, .18, 'sine', .028);
-      bgmHigh = !bgmHigh;
-    }
-    function scheduleBgm(){
-      if(muted) return;
-      bgmTick();
-      bgmTimer = setTimeout(scheduleBgm, 1150 * (0.94 + Math.random()*0.12));
-    }
-    function startBgm(){ if(!bgmTimer && !muted) scheduleBgm(); }
-    function stopBgm(){ if(bgmTimer){ clearTimeout(bgmTimer); bgmTimer = null; } }
-    function stopBgm(){ if(bgmTimer){ clearInterval(bgmTimer); bgmTimer = null; } }
+    /* unlock audio on first tap (mobile autoplay policy); SFX only, no BGM */
     document.addEventListener('pointerdown', function initAudio(){
       document.removeEventListener('pointerdown', initAudio);
-      ac(); startBgm();
-    });
-    document.addEventListener('visibilitychange', function(){
-      if(!ctx) return;
-      if(document.hidden){ try{ ctx.suspend(); }catch(e){} stopBgm(); }
-      else { try{ ctx.resume(); }catch(e){} startBgm(); }
+      ac();
     });
     function confetti(){
       var colors = ['#ff6b9d','#ffd93d','#6bcbff','#a78bfa','#7bed9f','#ffb347'];
@@ -296,7 +275,7 @@
       wrong: function(){ slide(700, 175, 0, .38, 'sawtooth', .06); slide(700, 175, .04, .38, 'triangle', .05); },
       win: function(){ var n=[523,659,784,1047]; for(var i=0;i<n.length;i++){ tone(n[i], i*.095, .2, 'triangle', .16); tone(n[i]*2, i*.095, .14, 'sine', .06); } tone(1319, .42, .45, 'triangle', .15); tone(1568, .54, .5, 'sine', .08); tone(2093, .66, .5, 'sine', .05); },
       confetti: confetti, stamp: stamp,
-      toggle: function(){ muted = !muted; if(muted){ stopBgm(); } else { ac(); startBgm(); } return muted; }
+      toggle: function(){ muted = !muted; return muted; }
     };
   })();
 
