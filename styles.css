@@ -1272,3 +1272,9 @@ h2 {
 .deal-image-flip .flip-card { width: 100%; height: 100%; }
 .deal-image-flip .flip-card .flip-inner { width: 100%; height: 100%; aspect-ratio: auto; }
 .deal-image-flip .flip-card .deal-photo { object-fit: contain; }
+
+/* ---------- Card bottom: dates + button grouped together ---------- */
+.deal-foot { margin-top: auto; padding-top: 6px; }
+.deal-meta-bottom { justify-content: flex-start; margin-bottom: 12px; }
+.deal-meta-bottom span + span::before { content: "·"; margin-right: 12px; color: var(--muted); opacity: .6; }
+.deal-foot .deal-button { margin-top: 0; }
