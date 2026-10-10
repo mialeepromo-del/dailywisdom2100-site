@@ -1232,3 +1232,12 @@ h2 {
     padding: 26px !important;
   }
 }
+
+/* ---------- Flip card (Sudoku deal) ---------- */
+.flip-card { position: relative; width: 100%; perspective: 1200px; cursor: pointer; }
+.flip-card .flip-inner { position: relative; width: 100%; aspect-ratio: 1 / 1; transition: transform 0.65s ease; transform-style: preserve-3d; }
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-card .flip-front, .flip-card .flip-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; align-items: center; justify-content: center; }
+.flip-card .flip-back { transform: rotateY(180deg); }
+.flip-card .flip-hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(30,30,30,0.78); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; pointer-events: none; white-space: nowrap; }
+.flip-card:focus-visible { outline: 2px solid #2563eb; outline-offset: 4px; border-radius: 8px; }
