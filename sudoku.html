@@ -232,6 +232,32 @@
       o.connect(g); g.connect(c.destination);
       o.start(t); o.stop(t + dur + 0.05);
     }
+    function slide(f0, f1, delay, dur, type, vol){
+      if(muted) return; var c = ac(); if(!c) return;
+      var t = c.currentTime + delay, o = c.createOscillator(), g = c.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(Math.max(1, f0), t);
+      o.frequency.exponentialRampToValueAtTime(Math.max(1, f1), t + dur);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(c.destination);
+      o.start(t); o.stop(t + dur + 0.05);
+    }
+    /* tick-tock arcade BGM: starts on first tap (autoplay policy), stops when muted/hidden */
+    var bgmTimer = null, bgmHigh = true;
+    function bgmTick(){ tone(bgmHigh ? 1560 : 1170, 0, 0.05, 'sine', 0.035); bgmHigh = !bgmHigh; }
+    function startBgm(){ if(!bgmTimer && !muted) bgmTimer = setInterval(bgmTick, 620); }
+    function stopBgm(){ if(bgmTimer){ clearInterval(bgmTimer); bgmTimer = null; } }
+    document.addEventListener('pointerdown', function initAudio(){
+      document.removeEventListener('pointerdown', initAudio);
+      ac(); startBgm();
+    });
+    document.addEventListener('visibilitychange', function(){
+      if(!ctx) return;
+      if(document.hidden){ try{ ctx.suspend(); }catch(e){} stopBgm(); }
+      else { try{ ctx.resume(); }catch(e){} startBgm(); }
+    });
     function confetti(){
       var colors = ['#ff6b9d','#ffd93d','#6bcbff','#a78bfa','#7bed9f','#ffb347'];
       for(var i=0;i<90;i++){
@@ -255,10 +281,10 @@
     }
     return {
       pop: function(){ tone(620, 0, .1, 'sine', .14); },
-      wrong: function(){ tone(220, 0, .16, 'sawtooth', .1); tone(155, .13, .28, 'sawtooth', .1); },
-      win: function(){ var n=[523,659,784,1047]; for(var i=0;i<n.length;i++) tone(n[i], i*.11, .2, 'triangle', .16); tone(1319, .48, .45, 'triangle', .14); },
+      wrong: function(){ slide(520, 130, 0, .45, 'sawtooth', .07); slide(520, 130, .05, .45, 'triangle', .05); },
+      win: function(){ var n=[523,659,784,1047]; for(var i=0;i<n.length;i++){ tone(n[i], i*.11, .22, 'triangle', .16); tone(n[i]*2, i*.11, .15, 'sine', .05); } tone(1319, .48, .5, 'triangle', .14); tone(1568, .62, .55, 'sine', .07); },
       confetti: confetti, stamp: stamp,
-      toggle: function(){ muted = !muted; return muted; }
+      toggle: function(){ muted = !muted; if(muted){ stopBgm(); } else { ac(); startBgm(); } return muted; }
     };
   })();
 
