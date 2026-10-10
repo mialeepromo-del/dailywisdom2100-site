@@ -90,38 +90,37 @@
   <main class="sudoku-page">
     <a class="back-link" href="index.html#latest">&larr; Back to deals</a>
     <h1>Today's Sudoku</h1>
-    <p class="sudoku-date">Friday, October 9, 2026 &middot; Medium</p>
+    <p class="sudoku-date" id="sudokuDate">Loading today&#8217;s puzzle...</p>
 
     <div class="sudoku-flip" id="flipCard" role="button" tabindex="0" aria-label="Tap to flip between puzzle and answer">
       <div class="flip-inner">
-        <div class="flip-front"><img src="images/sudoku_2026-10-09_puzzle.svg" alt="Today's Sudoku puzzle"></div>
-        <div class="flip-back"><img src="images/sudoku_2026-10-09_solution.svg" alt="Today's Sudoku answer key"></div>
+        <div class="flip-front"><img id="flipFrontImg" src="images/sudoku_2026-10-09_puzzle.svg" alt="Today's Sudoku puzzle"></div>
+        <div class="flip-back"><img id="flipBackImg" src="images/sudoku_2026-10-09_solution.svg" alt="Today's Sudoku answer key"></div>
       </div>
     </div>
     <p class="flip-hint" id="flipHint">Tap the card to reveal the answer</p>
 
     <div class="sudoku-actions">
-      <a class="btn" href="images/sudoku_2026-10-09_puzzle.svg" download="sudoku-2026-10-09.svg">Download Puzzle</a>
+      <a class="btn" id="dlBtn" href="images/sudoku_2026-10-09_puzzle.svg" download="sudoku-2026-10-09.svg">Download Puzzle</a>
       <button class="btn" type="button" id="printBtn">Print A4</button>
       <a class="btn primary" href="#play">Play Now</a>
     </div>
 
     <section id="play">
       <h2>Play Now</h2>
-      <p class="sub">A fresh puzzle every visit &mdash; tap a cell, then pick a number.</p>
+      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Come back tomorrow for a new one.</p>
       <div id="game-grid" role="grid" aria-label="Sudoku board"></div>
       <div id="game-pad"></div>
       <div class="game-row">
         <button type="button" id="gCheck" class="primary">Check</button>
         <button type="button" id="gHint">Hint</button>
-        <button type="button" id="gNew">New Puzzle</button>
       </div>
       <p id="game-msg"></p>
     </section>
   </main>
 
   <div id="print-sheet" aria-hidden="true">
-    <img src="images/sudoku_2026-10-09_puzzle.svg" alt="">
+    <img id="printImg" src="images/sudoku_2026-10-09_puzzle.svg" alt="">
   </div>
 
 <script>
@@ -139,49 +138,8 @@
   /* ---------- print ---------- */
   document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
 
-  /* ---------- sudoku engine ---------- */
-  function shuffled(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=(Math.random()*(i+1))|0, t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
-  function candidates(g,i){
-    var r=(i/9)|0, c=i%9, used={};
-    for(var k=0;k<9;k++){ used[g[r*9+k]]=1; used[g[k*9+c]]=1; }
-    var br=3*((r/3)|0), bc=3*((c/3)|0);
-    for(var dr=0;dr<3;dr++) for(var dc=0;dc<3;dc++) used[g[(br+dr)*9+bc*3+dc]]=1;
-    var out=[]; for(var n=1;n<=9;n++) if(!used[n]) out.push(n);
-    return out;
-  }
-  function fill(g){
-    for(var i=0;i<81;i++){
-      if(!g[i]){
-        var nums=shuffled(candidates(g,i));
-        for(var k=0;k<nums.length;k++){ g[i]=nums[k]; if(fill(g)) return true; }
-        g[i]=0; return false;
-      }
-    }
-    return true;
-  }
-  function countSolutions(g, limit){
-    var bi=-1, bc=null;
-    for(var i=0;i<81;i++){
-      if(!g[i]){
-        var c=candidates(g,i);
-        if(!c.length) return 0;
-        if(bc===null||c.length<bc.length){ bi=i; bc=c; if(c.length===1) break; }
-      }
-    }
-    if(bi<0) return 1;
-    var total=0;
-    for(var k=0;k<bc.length;k++){ g[bi]=bc[k]; total+=countSolutions(g,limit-total); g[bi]=0; if(total>=limit) break; }
-    return total;
-  }
-  function newPuzzle(){
-    var full=new Array(81).fill(0); fill(full);
-    var p=full.slice(), cells=shuffled([...Array(81).keys()]), givens=81;
-    for(var k=0;k<cells.length && givens>32;k++){
-      var i=cells[k], bak=p[i]; p[i]=0;
-      if(countSolutions(p.slice(),2)!==1) p[i]=bak; else givens--;
-    }
-    return {puzzle:p, solution:full};
-  }
+  /* ---------- daily puzzle (one per day) ---------- */
+  function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
 
   /* ---------- game UI ---------- */
   var G={v:[],P:[],S:[],sel:-1,err:[],hint:[],done:false};
@@ -236,7 +194,7 @@
 
   function autoCheckWin(){
     for(var i=0;i<81;i++) if(G.v[i]!==G.S[i]) return;
-    G.done=true; msg.textContent='You solved it! Nicely done.'; msg.classList.add('win'); render();
+    G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); render();
   }
 
   document.getElementById('gCheck').addEventListener('click',function(){
@@ -248,7 +206,7 @@
       else if(G.v[i]!==G.S[i]){ errs++; G.err[i]=true; }
       else G.err[i]=false;
     }
-    if(!errs&&!empty){ G.done=true; msg.textContent='You solved it! Nicely done.'; msg.classList.add('win'); }
+    if(!errs&&!empty){ G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); }
     else if(!errs){ msg.textContent='All correct so far — '+empty+' empty cells left.'; msg.classList.remove('win'); }
     else { msg.textContent=errs+' wrong '+(errs===1?'cell':'cells')+' marked in red.'; msg.classList.remove('win'); }
     render();
@@ -262,12 +220,23 @@
     G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.sel=idx; msg.textContent=''; render(); autoCheckWin();
   });
 
-  function startGame(){
-    var d=newPuzzle();
-    G={v:d.puzzle.slice(),P:d.puzzle,S:d.solution,sel:-1,err:[],hint:[],done:false};
+  function startGame(puzzle, solution){
+    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false};
     msg.textContent=''; msg.classList.remove('win'); render();
   }
-  document.getElementById('gNew').addEventListener('click',startGame);
+
+  fetch('sudoku-daily.json')
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(data){
+      document.getElementById('sudokuDate').innerHTML = data.displayDate + ' &middot; ' + cap(data.difficulty);
+      var pz='images/sudoku_'+data.date+'_puzzle.svg', so='images/sudoku_'+data.date+'_solution.svg';
+      document.getElementById('flipFrontImg').src=pz;
+      document.getElementById('flipBackImg').src=so;
+      var dl=document.getElementById('dlBtn'); dl.href=pz; dl.setAttribute('download','sudoku-'+data.date+'.svg');
+      document.getElementById('printImg').src=pz;
+      startGame(data.puzzle, data.solution);
+    })
+    .catch(function(){ msg.textContent="Couldn't load today's puzzle. Please try again later."; });
 
   document.addEventListener('keydown',function(e){
     if(G.sel<0||G.done)return;
@@ -275,7 +244,6 @@
     else if((e.key==='Backspace'||e.key==='Delete')&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=0; G.err[G.sel]=false; render(); }
   });
 
-  startGame();
 })();
 </script>
 </body>
