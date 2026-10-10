@@ -3,7 +3,7 @@ const deals = [
   title: "Today's Sudoku — Daily Puzzle",
   category: "Freebies",
   benefit: "Free",
-  description: "A fresh Sudoku puzzle every morning. Tap the card to flip for the answer key, or hit Play Now for the interactive game, download, and print.",
+  description: "One fresh Sudoku every morning \u2014 gone by tomorrow. Tap the card to flip for the answer key, or hit Play Now to solve today's puzzle before it disappears.",
   expires: "October 10, 2026",
   expiryDate: "2026-10-10",
   posted: "Oct 09, 2026",
