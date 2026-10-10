@@ -4,7 +4,7 @@ const deals = [
   category: "Freebies",
   benefit: "Free",
   pinned: true,
-  description: "One fresh Sudoku every morning \u2014 gone by tomorrow. Hit Play Now to solve today's puzzle before it disappears.",
+  description: "One fresh Sudoku every morning \u2014 gone by tomorrow. Hit Play Now to play, download, or print today's puzzle before it disappears.",
   posted: "Oct 09, 2026",
   postingDate: "2026-10-09",
   image: "images/sudoku_2026-10-09_puzzle.svg",
