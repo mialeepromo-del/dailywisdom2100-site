@@ -873,7 +873,7 @@ function renderDeals() {
 
       return `
         <article class="deal-card ${expired ? "expired" : ""}">
-          <div class="deal-image">
+          <div class="deal-image${deal.flip ? " deal-image-flip" : ""}">
             ${getDealImage(deal)}
 
             <span class="badge">
