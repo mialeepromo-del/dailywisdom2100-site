@@ -246,8 +246,12 @@
     }
     /* tick-tock arcade BGM: starts on first tap (autoplay policy), stops when muted/hidden */
     var bgmTimer = null, bgmHigh = true;
-    function bgmTick(){ tone(bgmHigh ? 1560 : 1170, 0, 0.05, 'sine', 0.035); bgmHigh = !bgmHigh; }
-    function startBgm(){ if(!bgmTimer && !muted) bgmTimer = setInterval(bgmTick, 620); }
+    function bgmTick(){
+      if(bgmHigh){ tone(2093, 0, .06, 'triangle', .05); tone(2637, .02, .05, 'sine', .018); }
+      else { tone(1568, 0, .06, 'triangle', .05); }
+      bgmHigh = !bgmHigh;
+    }
+    function startBgm(){ if(!bgmTimer && !muted) bgmTimer = setInterval(bgmTick, 500); }
     function stopBgm(){ if(bgmTimer){ clearInterval(bgmTimer); bgmTimer = null; } }
     document.addEventListener('pointerdown', function initAudio(){
       document.removeEventListener('pointerdown', initAudio);
@@ -280,9 +284,9 @@
       s._t = setTimeout(function(){ s.className=''; }, 950);
     }
     return {
-      pop: function(){ tone(620, 0, .1, 'sine', .14); },
-      wrong: function(){ slide(520, 130, 0, .45, 'sawtooth', .07); slide(520, 130, .05, .45, 'triangle', .05); },
-      win: function(){ var n=[523,659,784,1047]; for(var i=0;i<n.length;i++){ tone(n[i], i*.11, .22, 'triangle', .16); tone(n[i]*2, i*.11, .15, 'sine', .05); } tone(1319, .48, .5, 'triangle', .14); tone(1568, .62, .55, 'sine', .07); },
+      pop: function(){ tone(880, 0, .09, 'triangle', .13); tone(1320, .015, .06, 'sine', .05); },
+      wrong: function(){ slide(700, 175, 0, .38, 'sawtooth', .06); slide(700, 175, .04, .38, 'triangle', .05); },
+      win: function(){ var n=[523,659,784,1047]; for(var i=0;i<n.length;i++){ tone(n[i], i*.095, .2, 'triangle', .16); tone(n[i]*2, i*.095, .14, 'sine', .06); } tone(1319, .42, .45, 'triangle', .15); tone(1568, .54, .5, 'sine', .08); tone(2093, .66, .5, 'sine', .05); },
       confetti: confetti, stamp: stamp,
       toggle: function(){ muted = !muted; if(muted){ stopBgm(); } else { ac(); startBgm(); } return muted; }
     };
