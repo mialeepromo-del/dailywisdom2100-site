@@ -924,7 +924,7 @@ function renderDeals() {
 
             <div class="deal-meta">
               <span>
-                ${expired ? "Expired" : deal.expires}
+                ${expired ? "Expired" : (deal.expires || "")}
               </span>
 
               <span>
