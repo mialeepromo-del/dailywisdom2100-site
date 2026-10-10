@@ -1276,4 +1276,4 @@ h2 {
 /* ---------- Card bottom: full-bleed foot, edge-balanced dates ---------- */
 .deal-foot { margin-top: auto; }
 .deal-meta-bottom { justify-content: space-between; padding: 4px 22px 0; margin-bottom: 12px; }
-.deal-foot .deal-button { margin-top: 0; border-radius: 0; padding: 16px; font-size: 1rem; }
+.deal-foot .deal-button { margin-top: 0; }
