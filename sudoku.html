@@ -68,7 +68,10 @@
     @page { size: A4; margin: 12mm; }
     @media print {
       body > *:not(#print-sheet) { display: none !important; }
-      #print-sheet { display: flex !important; align-items: center; justify-content: center; height: 100vh; }
+      #print-sheet { display: block !important; }
+      #print-sheet .print-page { display: flex; align-items: center; justify-content: center;
+        height: 100vh; page-break-after: always; }
+      #print-sheet .print-page:last-child { page-break-after: auto; }
       #print-sheet img { width: 100%; max-height: 100%; object-fit: contain; }
     }
   </style>
@@ -102,7 +105,7 @@
 
     <div class="sudoku-actions">
       <a class="btn" id="dlBtn" href="images/sudoku_2026-10-09_puzzle.svg" download="sudoku-2026-10-09.svg">Download Puzzle</a>
-      <button class="btn" type="button" id="printBtn">Print A4</button>
+      <button class="btn" type="button" id="printBtn">Print A4 (2 pages)</button>
       <a class="btn primary" href="#play">Play Now</a>
     </div>
 
@@ -120,7 +123,8 @@
   </main>
 
   <div id="print-sheet" aria-hidden="true">
-    <img id="printImg" src="images/sudoku_2026-10-09_puzzle.svg" alt="">
+    <div class="print-page"><img id="printImg" src="images/sudoku_2026-10-09_puzzle.svg" alt=""></div>
+    <div class="print-page"><img id="printSolImg" src="images/sudoku_2026-10-09_solution.svg" alt=""></div>
   </div>
 
 <script>
@@ -234,6 +238,7 @@
       document.getElementById('flipBackImg').src=so;
       var dl=document.getElementById('dlBtn'); dl.href=pz; dl.setAttribute('download','sudoku-'+data.date+'.svg');
       document.getElementById('printImg').src=pz;
+      document.getElementById('printSolImg').src=so;
       startGame(data.puzzle, data.solution);
     })
     .catch(function(){ msg.textContent="Couldn't load today's puzzle. Please try again later."; });
