@@ -68,6 +68,16 @@
     #game-msg.win { color: #1a7f37; font-weight: 700; font-size: 18px; }
 
 
+
+    /* ---------- daily cute characters ---------- */
+    #play { position: relative; }
+    #char-decor { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+    #char-decor span { position: absolute; font-size: clamp(34px, 9vw, 52px);
+      animation: floaty 3.6s ease-in-out infinite; filter: drop-shadow(0 5px 7px rgba(0,0,0,.12)); }
+    #char-decor .c1 { top: -6px; left: 2%; }
+    #char-decor .c2 { top: -6px; right: 2%; animation-delay: -1.8s; }
+    @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-13px) rotate(7deg); } }
+
     /* ---------- Playful game animations ---------- */
     .sound-btn { background: none; border: 0; font-size: 20px; cursor: pointer; vertical-align: middle; padding: 4px; }
     #game-wrap { position: relative; max-width: 480px; margin: 0 auto; }
@@ -122,13 +132,15 @@
     <p class="sudoku-date" id="sudokuDate">Loading today&#8217;s puzzle...</p>
 
     <section id="play">
+      <div id="char-decor" aria-hidden="true"></div>
       <h2>Play Now <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle sound">🔊</button></h2>
-      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Come back tomorrow for a new one.</p>
+      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Double-tap a number to erase it.</p>
       <div id="game-wrap"><div id="game-grid" role="grid" aria-label="Sudoku board"></div><div id="game-stamp" aria-hidden="true"></div></div>
       <div id="game-pad"></div>
       <div class="game-row">
         <button type="button" id="gCheck" class="primary">Check</button>
         <button type="button" id="gHint">Hint</button>
+        <button type="button" id="gReset">Reset</button>
       </div>
       <p id="game-msg"></p>
     </section>
@@ -174,6 +186,20 @@
   /* ---------- daily puzzle (one per day) ---------- */
   function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
 
+
+
+  /* ---------- daily cute background characters ---------- */
+  (function(){
+    var chars = ['🐱','🐰','🐻','🐤','🦊','🐼','🐸'];
+    var dayNum = Math.floor(Date.now() / 86400000);
+    var box = document.getElementById('char-decor');
+    var picks = [chars[dayNum % chars.length], chars[(dayNum + 3) % chars.length]];
+    picks.forEach(function(ch, i){
+      var s = document.createElement('span');
+      s.className = 'c' + (i+1); s.textContent = ch;
+      box.appendChild(s);
+    });
+  })();
 
   /* ---------- playful FX: sound, confetti, stamps ---------- */
   var FX = (function(){
@@ -257,6 +283,11 @@
           if(G.P[idx]||G.done)return;
           G.sel=(G.sel===idx)?-1:idx; msg.textContent=''; msg.classList.remove('win'); render();
         });
+        b.addEventListener('dblclick',function(e){
+          e.preventDefault();
+          if(G.P[idx]||G.hint[idx]||G.done||!G.v[idx])return;
+          G.v[idx]=0; G.err[idx]=false; G.sel=idx; msg.textContent=''; render(); FX.pop();
+        });
         grid.appendChild(b);
       })(i);
     }
@@ -308,13 +339,22 @@
     G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.sel=idx; msg.textContent=''; render(); autoCheckWin();
   });
 
+  document.getElementById('gReset').addEventListener('click',function(){
+    if(G.done)return;
+    var hasEntry=false;
+    for(var i=0;i<81;i++) if(!G.P[i]&&G.v[i]){ hasEntry=true; break; }
+    if(!hasEntry)return;
+    G.v=G.P.slice(); G.err=[]; G.hint=[]; G.sel=-1;
+    msg.textContent='Fresh start — good luck!'; msg.classList.remove('win'); render(); FX.pop();
+  });
+
   function startGame(puzzle, solution){
     G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false,popCell:-1};
     msg.textContent=''; msg.classList.remove('win'); render();
   }
 
   document.getElementById('soundToggle').addEventListener('click', function(){
-    this.textContent = FX.toggle() ? '🔇' : '\U0001F50A';
+    this.textContent = FX.toggle() ? '🔇' : '🔊';
   });
 
   fetch('sudoku-daily.json')
