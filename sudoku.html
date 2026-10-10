@@ -245,13 +245,19 @@
       o.start(t); o.stop(t + dur + 0.05);
     }
     /* tick-tock arcade BGM: starts on first tap (autoplay policy), stops when muted/hidden */
-    var bgmTimer = null, bgmHigh = true;
+    function mf(m){ return 440*Math.pow(2,(m-69)/12); }
+    var bgmTimer = null, bgmStep = 0;
+    /* bouncy bubble-arcade loop: cheerful 16-step melody + soft bass */
+    var BGM_LEAD = [72,76,79,76,81,79,76,72,74,77,81,79,76,79,84,0];
+    var BGM_BASS = [48,53,55,48];
+    var BGM_STEP = 0.22;
     function bgmTick(){
-      if(bgmHigh){ tone(2093, 0, .06, 'triangle', .05); tone(2637, .02, .05, 'sine', .018); }
-      else { tone(1568, 0, .06, 'triangle', .05); }
-      bgmHigh = !bgmHigh;
+      var m = BGM_LEAD[bgmStep % BGM_LEAD.length];
+      if(m){ tone(mf(m), 0, BGM_STEP*2.4, 'triangle', .10); tone(mf(m+12), .01, BGM_STEP*1.6, 'sine', .028); }
+      if(bgmStep % 4 === 0) tone(mf(BGM_BASS[(bgmStep>>2) % BGM_BASS.length]), 0, BGM_STEP*3.2, 'sine', .05);
+      bgmStep++;
     }
-    function startBgm(){ if(!bgmTimer && !muted) bgmTimer = setInterval(bgmTick, 500); }
+    function startBgm(){ if(!bgmTimer && !muted) bgmTimer = setInterval(bgmTick, BGM_STEP*1000); }
     function stopBgm(){ if(bgmTimer){ clearInterval(bgmTimer); bgmTimer = null; } }
     document.addEventListener('pointerdown', function initAudio(){
       document.removeEventListener('pointerdown', initAudio);
