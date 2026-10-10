@@ -134,7 +134,7 @@
     <section id="play">
       <div id="char-decor" aria-hidden="true"></div>
       <h2>Play Now <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle sound">🔊</button></h2>
-      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Double-tap a number to erase it.</p>
+      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Double-tap a number to erase it, or press ⌫ to undo entries one by one.</p>
       <div id="game-wrap"><div id="game-grid" role="grid" aria-label="Sudoku board"></div><div id="game-stamp" aria-hidden="true"></div></div>
       <div id="game-pad"></div>
       <div class="game-row">
@@ -299,15 +299,21 @@
       var b=document.createElement('button'); b.type='button'; b.textContent=num;
       b.addEventListener('click',function(){
         if(G.sel<0||G.P[G.sel]||G.hint[G.sel]||G.done)return;
-        G.v[G.sel]=num; G.err[G.sel]=false; G.popCell=G.sel; msg.textContent=''; render(); FX.pop(); autoCheckWin();
+        G.v[G.sel]=num; G.err[G.sel]=false; G.popCell=G.sel; G.history.push(G.sel); msg.textContent=''; render(); FX.pop(); autoCheckWin();
       });
       pad.appendChild(b);
     })(n);
   }
-  var eb=document.createElement('button'); eb.type='button'; eb.textContent='\u232B'; eb.setAttribute('aria-label','Erase');
+  var eb=document.createElement('button'); eb.type='button'; eb.textContent='\u232B'; eb.setAttribute('aria-label','Undo last entry');
   eb.addEventListener('click',function(){
-    if(G.sel<0||G.P[G.sel]||G.hint[G.sel]||G.done)return;
-    G.v[G.sel]=0; G.err[G.sel]=false; msg.textContent=''; render();
+    if(G.done)return;
+    while(G.history.length){
+      var idx=G.history.pop();
+      if(G.P[idx]||!G.v[idx])continue;
+      G.v[idx]=0; G.err[idx]=false; G.hint[idx]=false; G.sel=idx;
+      msg.textContent=''; render(); FX.pop();
+      return;
+    }
   });
   pad.appendChild(eb);
 
@@ -336,7 +342,7 @@
     var idx=G.sel;
     if(idx<0||G.P[idx]||G.v[idx]){ idx=-1; for(var i=0;i<81;i++) if(!G.P[i]&&!G.v[i]){ idx=i; break; } }
     if(idx<0){ msg.textContent='No empty cells left.'; return; }
-    G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.sel=idx; msg.textContent=''; render(); autoCheckWin();
+    G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.sel=idx; G.history.push(idx); msg.textContent=''; render(); autoCheckWin();
   });
 
   document.getElementById('gReset').addEventListener('click',function(){
@@ -344,12 +350,12 @@
     var hasEntry=false;
     for(var i=0;i<81;i++) if(!G.P[i]&&G.v[i]){ hasEntry=true; break; }
     if(!hasEntry)return;
-    G.v=G.P.slice(); G.err=[]; G.hint=[]; G.sel=-1;
+    G.v=G.P.slice(); G.err=[]; G.hint=[]; G.sel=-1; G.history=[];
     msg.textContent='Fresh start — good luck!'; msg.classList.remove('win'); render(); FX.pop();
   });
 
   function startGame(puzzle, solution){
-    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false,popCell:-1};
+    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false,popCell:-1,history:[]};
     msg.textContent=''; msg.classList.remove('win'); render();
   }
 
@@ -373,7 +379,7 @@
 
   document.addEventListener('keydown',function(e){
     if(G.sel<0||G.done)return;
-    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=+e.key; G.err[G.sel]=false; G.popCell=G.sel; msg.textContent=''; render(); FX.pop(); autoCheckWin(); }
+    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=+e.key; G.err[G.sel]=false; G.popCell=G.sel; G.history.push(G.sel); msg.textContent=''; render(); FX.pop(); autoCheckWin(); }
     else if((e.key==='Backspace'||e.key==='Delete')&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=0; G.err[G.sel]=false; render(); }
   });
 
