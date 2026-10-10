@@ -34,6 +34,10 @@
     .btn.primary { background: #1e1e1e; color: #fff; border-color: #1e1e1e; }
     .btn:hover { opacity: .88; }
 
+    .section-divider { border: 0; border-top: 1px solid #e5e5e5; margin: 44px auto; max-width: 560px; }
+    .flip-title { text-align: center; margin-bottom: 16px; }
+    #play { margin-bottom: 8px; }
+
     /* Game */
     #play h2 { text-align: center; margin-bottom: 6px; }
     #play .sub { text-align: center; color: #777; margin-bottom: 18px; font-size: 14px; }
@@ -95,20 +99,6 @@
     <h1>Today's Sudoku</h1>
     <p class="sudoku-date" id="sudokuDate">Loading today&#8217;s puzzle...</p>
 
-    <div class="sudoku-flip" id="flipCard" role="button" tabindex="0" aria-label="Tap to flip between puzzle and answer">
-      <div class="flip-inner">
-        <div class="flip-front"><img id="flipFrontImg" src="images/sudoku_2026-10-09_puzzle.svg" alt="Today's Sudoku puzzle"></div>
-        <div class="flip-back"><img id="flipBackImg" src="images/sudoku_2026-10-09_solution.svg" alt="Today's Sudoku answer key"></div>
-      </div>
-    </div>
-    <p class="flip-hint" id="flipHint">Tap the card to reveal the answer</p>
-
-    <div class="sudoku-actions">
-      <a class="btn" id="dlBtn" href="images/sudoku_2026-10-09_puzzle.svg" download="sudoku-2026-10-09.svg">Download Puzzle</a>
-      <button class="btn" type="button" id="printBtn">Print A4 (2 pages)</button>
-      <a class="btn primary" href="#play">Play Now</a>
-    </div>
-
     <section id="play">
       <h2>Play Now</h2>
       <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Come back tomorrow for a new one.</p>
@@ -120,6 +110,23 @@
       </div>
       <p id="game-msg"></p>
     </section>
+
+    <hr class="section-divider">
+
+    <h2 class="flip-title">Puzzle &amp; Answer Key</h2>
+    <div class="sudoku-flip" id="flipCard" role="button" tabindex="0" aria-label="Tap to flip between puzzle and answer">
+      <div class="flip-inner">
+        <div class="flip-front"><img id="flipFrontImg" src="images/sudoku_2026-10-09_puzzle.svg" alt="Today's Sudoku puzzle"></div>
+        <div class="flip-back"><img id="flipBackImg" src="images/sudoku_2026-10-09_solution.svg" alt="Today's Sudoku answer key"></div>
+      </div>
+    </div>
+    <p class="flip-hint" id="flipHint">Tap the card to reveal the answer</p>
+
+    <div class="sudoku-actions">
+      <a class="btn" id="dlBtn" href="images/sudoku_2026-10-09_puzzle.svg" download="sudoku-2026-10-09.svg">Download Puzzle</a>
+      <button class="btn" type="button" id="printBtn">Print A4 (2 pages)</button>
+    </div>
+
   </main>
 
   <div id="print-sheet" aria-hidden="true">
