@@ -1241,3 +1241,8 @@ h2 {
 .flip-card .flip-back { transform: rotateY(180deg); }
 .flip-card .flip-hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(30,30,30,0.78); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; pointer-events: none; white-space: nowrap; }
 .flip-card:focus-visible { outline: 2px solid #2563eb; outline-offset: 4px; border-radius: 8px; }
+
+/* ---------- Pinned deal badge ---------- */
+.pin-badge { position: absolute; top: 12px; right: 12px; background: #1e1e1e; color: #fff;
+  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px;
+  pointer-events: none; white-space: nowrap; z-index: 2; }
