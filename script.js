@@ -1,5 +1,33 @@
 const deals = [
     {
+  title: "Today's Sudoku — Daily Puzzle (Oct 9)",
+  category: "Freebies",
+  benefit: "Free",
+  description: "A fresh Sudoku puzzle every morning. Solve it on screen or print it out — the answer key is posted right alongside.",
+  expires: "October 10, 2026",
+  expiryDate: "2026-10-10",
+  posted: "Oct 09, 2026",
+  postingDate: "2026-10-09",
+  image: "images/sudoku_2026-10-09_puzzle.png",
+  emoji: "🧩",
+  code: "NO CODE NEEDED",
+  affiliateLink: "https://dailywisdom2100-site.pages.dev/images/sudoku_2026-10-09_solution.png"
+}, 
+    {
+  title: "Today's Sudoku — Answer Key (Oct 9)",
+  category: "Freebies",
+  benefit: "Free",
+  description: "Stuck on today's Sudoku? Here is the full answer key. Given numbers are in black, solved numbers in blue.",
+  expires: "October 10, 2026",
+  expiryDate: "2026-10-10",
+  posted: "Oct 09, 2026",
+  postingDate: "2026-10-09",
+  image: "images/sudoku_2026-10-09_solution.png",
+  emoji: "🔑",
+  code: "NO CODE NEEDED",
+  affiliateLink: "https://dailywisdom2100-site.pages.dev/images/sudoku_2026-10-09_puzzle.png"
+}, 
+    {
   title: "California Clean Air Day — Ride Free",
   category: "Freebies",
   benefit: "Free",
