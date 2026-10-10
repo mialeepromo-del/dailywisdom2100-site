@@ -67,7 +67,29 @@
     #game-msg { text-align: center; min-height: 24px; color: #666; margin-top: 12px; font-size: 14px; }
     #game-msg.win { color: #1a7f37; font-weight: 700; font-size: 18px; }
 
-    /* Print: only the puzzle, centered on one A4 page */
+
+    /* ---------- Playful game animations ---------- */
+    .sound-btn { background: none; border: 0; font-size: 20px; cursor: pointer; vertical-align: middle; padding: 4px; }
+    #game-wrap { position: relative; max-width: 480px; margin: 0 auto; }
+    #game-grid { margin: 0; }
+    @keyframes cellPop { 0% { transform: scale(1); } 40% { transform: scale(1.28); } 100% { transform: scale(1); } }
+    #game-grid .cell.pop { animation: cellPop .32s ease; }
+    @keyframes gridShake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-9px); } 40% { transform: translateX(9px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(6px); } }
+    #game-grid.shake { animation: gridShake .45s ease; }
+    @keyframes msgBounce { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); } }
+    #game-msg.win { animation: msgBounce .5s ease; }
+    #game-stamp { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: clamp(48px, 14vw, 84px); font-weight: 800; pointer-events: none; opacity: 0; z-index: 5; }
+    #game-stamp.show { opacity: 1; animation: stampIn .38s ease; }
+    #game-stamp.buzz { color: #d33; text-shadow: 0 3px 0 #fff, 0 0 24px rgba(221,51,51,.35); }
+    #game-stamp.yeah { color: #1a7f37; text-shadow: 0 3px 0 #fff, 0 0 24px rgba(26,127,55,.3); }
+    @keyframes stampIn { 0% { transform: scale(2.6) rotate(-14deg); opacity: 0; } 60% { transform: scale(.94) rotate(4deg); opacity: 1; } 100% { transform: scale(1) rotate(-4deg); opacity: 1; } }
+    .confetti-piece { position: fixed; top: -14px; z-index: 9999; pointer-events: none; animation-name: confettiFall; animation-timing-function: linear; animation-fill-mode: forwards; }
+    @keyframes confettiFall { to { transform: translateY(112vh) rotate(720deg); } }
+    #game-pad button { transition: transform .08s ease; }
+    #game-pad button:active { transform: scale(.92); }
+
+    /* Print: puzzle page 1, answer key page 2 */
     #print-sheet { display: none; }
     @page { size: A4; margin: 12mm; }
     @media print {
@@ -100,9 +122,9 @@
     <p class="sudoku-date" id="sudokuDate">Loading today&#8217;s puzzle...</p>
 
     <section id="play">
-      <h2>Play Now</h2>
+      <h2>Play Now <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle sound">🔊</button></h2>
       <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Come back tomorrow for a new one.</p>
-      <div id="game-grid" role="grid" aria-label="Sudoku board"></div>
+      <div id="game-wrap"><div id="game-grid" role="grid" aria-label="Sudoku board"></div><div id="game-stamp" aria-hidden="true"></div></div>
       <div id="game-pad"></div>
       <div class="game-row">
         <button type="button" id="gCheck" class="primary">Check</button>
@@ -152,6 +174,59 @@
   /* ---------- daily puzzle (one per day) ---------- */
   function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
 
+
+  /* ---------- playful FX: sound, confetti, stamps ---------- */
+  var FX = (function(){
+    var ctx = null, muted = false;
+    function ac(){ if(!ctx){ try{ ctx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return ctx; }
+    function tone(freq, delay, dur, type, vol){
+      if(muted) return; var c = ac(); if(!c) return;
+      var t = c.currentTime + delay, o = c.createOscillator(), g = c.createGain();
+      o.type = type; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(c.destination);
+      o.start(t); o.stop(t + dur + 0.05);
+    }
+    function confetti(){
+      var colors = ['#ff6b9d','#ffd93d','#6bcbff','#a78bfa','#7bed9f','#ffb347'];
+      for(var i=0;i<90;i++){
+        var p = document.createElement('div');
+        p.className = 'confetti-piece';
+        p.style.left = (Math.random()*100) + 'vw';
+        p.style.background = colors[i % colors.length];
+        p.style.width = (6+Math.random()*8)+'px';
+        p.style.height = (8+Math.random()*10)+'px';
+        p.style.animationDuration = (2.2+Math.random()*2)+'s';
+        if(Math.random()<.35) p.style.borderRadius = '50%';
+        document.body.appendChild(p);
+        (function(el){ setTimeout(function(){ el.remove(); }, 4800); })(p);
+      }
+    }
+    function stamp(text, cls){
+      var s = document.getElementById('game-stamp');
+      s.textContent = text; s.className = 'show ' + cls;
+      clearTimeout(s._t);
+      s._t = setTimeout(function(){ s.className=''; }, 950);
+    }
+    return {
+      pop: function(){ tone(620, 0, .1, 'sine', .14); },
+      wrong: function(){ tone(220, 0, .16, 'sawtooth', .1); tone(155, .13, .28, 'sawtooth', .1); },
+      win: function(){ var n=[523,659,784,1047]; for(var i=0;i<n.length;i++) tone(n[i], i*.11, .2, 'triangle', .16); tone(1319, .48, .45, 'triangle', .14); },
+      confetti: confetti, stamp: stamp,
+      toggle: function(){ muted = !muted; return muted; }
+    };
+  })();
+
+  function celebrate(){
+    FX.confetti(); FX.win(); FX.stamp('🎉', 'yeah');
+  }
+  function bonk(){
+    FX.wrong(); FX.stamp('깁!', 'buzz');
+    grid.classList.remove('shake'); void grid.offsetWidth; grid.classList.add('shake');
+  }
+
   /* ---------- game UI ---------- */
   var G={v:[],P:[],S:[],sel:-1,err:[],hint:[],done:false};
   var grid=document.getElementById('game-grid'), pad=document.getElementById('game-pad'),
@@ -173,6 +248,7 @@
         if(r===2||r===5)b.classList.add('thick-b');
         if(G.P[idx]){ b.textContent=G.P[idx]; b.classList.add('given'); }
         else if(G.v[idx]){ b.textContent=G.v[idx]; if(G.hint[idx])b.classList.add('hintv'); }
+        if(idx===G.popCell)b.classList.add('pop');
         if(idx===G.sel)b.classList.add('sel');
         else if(G.sel>=0&&ps[idx])b.classList.add('peer');
         if(sv&&G.v[idx]===sv&&idx!==G.sel)b.classList.add('same');
@@ -184,6 +260,7 @@
         grid.appendChild(b);
       })(i);
     }
+    G.popCell = -1;
   }
 
   for(var n=1;n<=9;n++){
@@ -191,7 +268,7 @@
       var b=document.createElement('button'); b.type='button'; b.textContent=num;
       b.addEventListener('click',function(){
         if(G.sel<0||G.P[G.sel]||G.hint[G.sel]||G.done)return;
-        G.v[G.sel]=num; G.err[G.sel]=false; msg.textContent=''; render(); autoCheckWin();
+        G.v[G.sel]=num; G.err[G.sel]=false; G.popCell=G.sel; msg.textContent=''; render(); FX.pop(); autoCheckWin();
       });
       pad.appendChild(b);
     })(n);
@@ -205,7 +282,7 @@
 
   function autoCheckWin(){
     for(var i=0;i<81;i++) if(G.v[i]!==G.S[i]) return;
-    G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); render();
+    G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); render(); celebrate();
   }
 
   document.getElementById('gCheck').addEventListener('click',function(){
@@ -217,9 +294,9 @@
       else if(G.v[i]!==G.S[i]){ errs++; G.err[i]=true; }
       else G.err[i]=false;
     }
-    if(!errs&&!empty){ G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); }
+    if(!errs&&!empty){ G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); celebrate(); }
     else if(!errs){ msg.textContent='All correct so far — '+empty+' empty cells left.'; msg.classList.remove('win'); }
-    else { msg.textContent=errs+' wrong '+(errs===1?'cell':'cells')+' marked in red.'; msg.classList.remove('win'); }
+    else { msg.textContent=errs+' wrong '+(errs===1?'cell':'cells')+' marked in red.'; msg.classList.remove('win'); bonk(); }
     render();
   });
 
@@ -232,9 +309,13 @@
   });
 
   function startGame(puzzle, solution){
-    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false};
+    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false,popCell:-1};
     msg.textContent=''; msg.classList.remove('win'); render();
   }
+
+  document.getElementById('soundToggle').addEventListener('click', function(){
+    this.textContent = FX.toggle() ? '🔇' : '\U0001F50A';
+  });
 
   fetch('sudoku-daily.json')
     .then(function(r){ if(!r.ok) throw 0; return r.json(); })
@@ -252,7 +333,7 @@
 
   document.addEventListener('keydown',function(e){
     if(G.sel<0||G.done)return;
-    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=+e.key; G.err[G.sel]=false; msg.textContent=''; render(); autoCheckWin(); }
+    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=+e.key; G.err[G.sel]=false; G.popCell=G.sel; msg.textContent=''; render(); FX.pop(); autoCheckWin(); }
     else if((e.key==='Backspace'||e.key==='Delete')&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=0; G.err[G.sel]=false; render(); }
   });
 
