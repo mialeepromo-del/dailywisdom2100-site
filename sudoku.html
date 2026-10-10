@@ -191,7 +191,14 @@
   flip.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleFlip(); } });
 
   /* ---------- print ---------- */
-  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+  document.getElementById('printBtn').addEventListener('click', function(){
+      var ua = (navigator.userAgent || '') + ' ' + (navigator.vendor || '');
+      if (/Instagram|FBAN|FBAV|FB_IAB|Line\/|KAKAOTALK|Naver|DaumApp|; wv\)/i.test(ua)) {
+        alert('Printing needs your main browser.\n\nTap \u2022\u2022\u2022 (or Share) \u2192 "Open in Safari" / "Open in Chrome", then tap Print A4 again.');
+        return;
+      }
+      window.print();
+    });
 
   /* ---------- daily puzzle (one per day) ---------- */
   function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
