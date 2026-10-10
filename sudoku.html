@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Play today's Sudoku — flip for the answer key, download, print, or play right here." />
+  <title>Today's Sudoku — Daily Wisdom Deals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .sudoku-page { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
+    .sudoku-page h1 { font-family: 'Playfair Display', serif; text-align: center; margin: 8px 0 4px; }
+    .sudoku-date { text-align: center; color: #777; margin-bottom: 20px; }
+    .back-link { display: inline-block; margin-bottom: 8px; color: #555; text-decoration: none; font-size: 14px; }
+    .back-link:hover { text-decoration: underline; }
+
+    /* Flip card */
+    .sudoku-flip { perspective: 1400px; cursor: pointer; max-width: 560px; margin: 0 auto; }
+    .sudoku-flip .flip-inner { position: relative; width: 100%; aspect-ratio: 1/1; transition: transform .65s; transform-style: preserve-3d; }
+    .sudoku-flip.flipped .flip-inner { transform: rotateY(180deg); }
+    .sudoku-flip .flip-front, .sudoku-flip .flip-back {
+      position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.12); background: #fff;
+    }
+    .sudoku-flip .flip-back { transform: rotateY(180deg); }
+    .sudoku-flip img { width: 100%; height: 100%; display: block; }
+    .flip-hint { text-align: center; color: #888; font-size: 14px; margin: 12px 0 20px; }
+
+    .sudoku-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 15px;
+           text-decoration: none; border: 1px solid #ddd; background: #fff; color: #222; cursor: pointer; }
+    .btn.primary { background: #1e1e1e; color: #fff; border-color: #1e1e1e; }
+    .btn:hover { opacity: .88; }
+
+    /* Game */
+    #play h2 { text-align: center; margin-bottom: 6px; }
+    #play .sub { text-align: center; color: #777; margin-bottom: 18px; font-size: 14px; }
+    #game-grid { display: grid; grid-template-columns: repeat(9, 1fr); max-width: 480px; margin: 0 auto;
+                 border: 3px solid #1e1e1e; border-radius: 8px; overflow: hidden; background: #fff; user-select: none; }
+    #game-grid .cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      font-size: clamp(16px, 5vw, 26px); border: 0; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;
+      background: #fff; cursor: pointer; padding: 0; color: #1e1e1e; font-family: 'DM Sans', sans-serif; }
+    #game-grid .cell:nth-child(9n) { border-right: 0; }
+    #game-grid .cell:nth-child(n+73) { border-bottom: 0; }
+    #game-grid .cell.thick-r { border-right: 2px solid #1e1e1e; }
+    #game-grid .cell.thick-b { border-bottom: 2px solid #1e1e1e; }
+    #game-grid .cell.given { font-weight: 700; cursor: default; }
+    #game-grid .cell.sel { background: #e8eefc; box-shadow: inset 0 0 0 2px #2563eb; }
+    #game-grid .cell.peer { background: #f2f5fd; }
+    #game-grid .cell.same { color: #2563eb; font-weight: 700; }
+    #game-grid .cell.err { color: #d33; }
+    #game-grid .cell.hintv { color: #2563eb; font-style: italic; }
+    #game-pad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; max-width: 480px; margin: 14px auto 0; }
+    #game-pad button { padding: 14px 0; font-size: 20px; border-radius: 10px; border: 1px solid #ddd;
+      background: #fff; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #1e1e1e; }
+    #game-pad button:active { background: #eef2fb; }
+    .game-row { display: flex; gap: 8px; max-width: 480px; margin: 14px auto 0; }
+    .game-row button { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #ddd; background: #fff;
+      cursor: pointer; font-size: 14px; font-weight: 600; color: #1e1e1e; }
+    .game-row button.primary { background: #1e1e1e; color: #fff; border-color: #1e1e1e; }
+    #game-msg { text-align: center; min-height: 24px; color: #666; margin-top: 12px; font-size: 14px; }
+    #game-msg.win { color: #1a7f37; font-weight: 700; font-size: 18px; }
+
+    /* Print: only the puzzle, centered on one A4 page */
+    #print-sheet { display: none; }
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body > *:not(#print-sheet) { display: none !important; }
+      #print-sheet { display: flex !important; align-items: center; justify-content: center; height: 100vh; }
+      #print-sheet img { width: 100%; max-height: 100%; object-fit: contain; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#top" aria-label="Daily Wisdom Deals home">
+        <span class="brand-mark">DW</span>
+        <span><strong>Daily Wisdom Deals</strong><small>@dailywisdom2100</small></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="sudoku-page">
+    <a class="back-link" href="index.html#latest">&larr; Back to deals</a>
+    <h1>Today's Sudoku</h1>
+    <p class="sudoku-date">Friday, October 9, 2026 &middot; Medium</p>
+
+    <div class="sudoku-flip" id="flipCard" role="button" tabindex="0" aria-label="Tap to flip between puzzle and answer">
+      <div class="flip-inner">
+        <div class="flip-front"><img src="images/sudoku_2026-10-09_puzzle.svg" alt="Today's Sudoku puzzle"></div>
+        <div class="flip-back"><img src="images/sudoku_2026-10-09_solution.svg" alt="Today's Sudoku answer key"></div>
+      </div>
+    </div>
+    <p class="flip-hint" id="flipHint">Tap the card to reveal the answer</p>
+
+    <div class="sudoku-actions">
+      <a class="btn" href="images/sudoku_2026-10-09_puzzle.svg" download="sudoku-2026-10-09.svg">Download Puzzle</a>
+      <button class="btn" type="button" id="printBtn">Print A4</button>
+      <a class="btn primary" href="#play">Play Now</a>
+    </div>
+
+    <section id="play">
+      <h2>Play Now</h2>
+      <p class="sub">A fresh puzzle every visit &mdash; tap a cell, then pick a number.</p>
+      <div id="game-grid" role="grid" aria-label="Sudoku board"></div>
+      <div id="game-pad"></div>
+      <div class="game-row">
+        <button type="button" id="gCheck" class="primary">Check</button>
+        <button type="button" id="gHint">Hint</button>
+        <button type="button" id="gNew">New Puzzle</button>
+      </div>
+      <p id="game-msg"></p>
+    </section>
+  </main>
+
+  <div id="print-sheet" aria-hidden="true">
+    <img src="images/sudoku_2026-10-09_puzzle.svg" alt="">
+  </div>
+
+<script>
+(function(){
+  /* ---------- flip card ---------- */
+  var flip = document.getElementById('flipCard'),
+      hint = document.getElementById('flipHint');
+  function toggleFlip(){
+    flip.classList.toggle('flipped');
+    hint.textContent = flip.classList.contains('flipped') ? 'Tap to go back to the puzzle' : 'Tap the card to reveal the answer';
+  }
+  flip.addEventListener('click', toggleFlip);
+  flip.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleFlip(); } });
+
+  /* ---------- print ---------- */
+  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+
+  /* ---------- sudoku engine ---------- */
+  function shuffled(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=(Math.random()*(i+1))|0, t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function candidates(g,i){
+    var r=(i/9)|0, c=i%9, used={};
+    for(var k=0;k<9;k++){ used[g[r*9+k]]=1; used[g[k*9+c]]=1; }
+    var br=3*((r/3)|0), bc=3*((c/3)|0);
+    for(var dr=0;dr<3;dr++) for(var dc=0;dc<3;dc++) used[g[(br+dr)*9+bc*3+dc]]=1;
+    var out=[]; for(var n=1;n<=9;n++) if(!used[n]) out.push(n);
+    return out;
+  }
+  function fill(g){
+    for(var i=0;i<81;i++){
+      if(!g[i]){
+        var nums=shuffled(candidates(g,i));
+        for(var k=0;k<nums.length;k++){ g[i]=nums[k]; if(fill(g)) return true; }
+        g[i]=0; return false;
+      }
+    }
+    return true;
+  }
+  function countSolutions(g, limit){
+    var bi=-1, bc=null;
+    for(var i=0;i<81;i++){
+      if(!g[i]){
+        var c=candidates(g,i);
+        if(!c.length) return 0;
+        if(bc===null||c.length<bc.length){ bi=i; bc=c; if(c.length===1) break; }
+      }
+    }
+    if(bi<0) return 1;
+    var total=0;
+    for(var k=0;k<bc.length;k++){ g[bi]=bc[k]; total+=countSolutions(g,limit-total); g[bi]=0; if(total>=limit) break; }
+    return total;
+  }
+  function newPuzzle(){
+    var full=new Array(81).fill(0); fill(full);
+    var p=full.slice(), cells=shuffled([...Array(81).keys()]), givens=81;
+    for(var k=0;k<cells.length && givens>32;k++){
+      var i=cells[k], bak=p[i]; p[i]=0;
+      if(countSolutions(p.slice(),2)!==1) p[i]=bak; else givens--;
+    }
+    return {puzzle:p, solution:full};
+  }
+
+  /* ---------- game UI ---------- */
+  var G={v:[],P:[],S:[],sel:-1,err:[],hint:[],done:false};
+  var grid=document.getElementById('game-grid'), pad=document.getElementById('game-pad'),
+      msg=document.getElementById('game-msg');
+
+  function peers(i){ var r=(i/9)|0,c=i%9,s={}; for(var k=0;k<9;k++){ s[r*9+k]=1; s[k*9+c]=1; }
+    var br=3*((r/3)|0),bc=3*((c/3)|0);
+    for(var dr=0;dr<3;dr++) for(var dc=0;dc<3;dc++) s[(br+dr)*9+bc*3+dc]=1; return s; }
+
+  function render(){
+    grid.innerHTML='';
+    var sv=G.sel>=0?G.v[G.sel]:0, ps=G.sel>=0?peers(G.sel):{};
+    for(var i=0;i<81;i++){
+      (function(idx){
+        var b=document.createElement('button');
+        b.type='button'; b.className='cell'; b.setAttribute('role','gridcell');
+        var r=(idx/9)|0,c=idx%9;
+        if(c===2||c===5)b.classList.add('thick-r');
+        if(r===2||r===5)b.classList.add('thick-b');
+        if(G.P[idx]){ b.textContent=G.P[idx]; b.classList.add('given'); }
+        else if(G.v[idx]){ b.textContent=G.v[idx]; if(G.hint[idx])b.classList.add('hintv'); }
+        if(idx===G.sel)b.classList.add('sel');
+        else if(G.sel>=0&&ps[idx])b.classList.add('peer');
+        if(sv&&G.v[idx]===sv&&idx!==G.sel)b.classList.add('same');
+        if(G.err[idx])b.classList.add('err');
+        b.addEventListener('click',function(){
+          if(G.P[idx]||G.done)return;
+          G.sel=(G.sel===idx)?-1:idx; msg.textContent=''; msg.classList.remove('win'); render();
+        });
+        grid.appendChild(b);
+      })(i);
+    }
+  }
+
+  for(var n=1;n<=9;n++){
+    (function(num){
+      var b=document.createElement('button'); b.type='button'; b.textContent=num;
+      b.addEventListener('click',function(){
+        if(G.sel<0||G.P[G.sel]||G.hint[G.sel]||G.done)return;
+        G.v[G.sel]=num; G.err[G.sel]=false; msg.textContent=''; render(); autoCheckWin();
+      });
+      pad.appendChild(b);
+    })(n);
+  }
+  var eb=document.createElement('button'); eb.type='button'; eb.textContent='\u232B'; eb.setAttribute('aria-label','Erase');
+  eb.addEventListener('click',function(){
+    if(G.sel<0||G.P[G.sel]||G.hint[G.sel]||G.done)return;
+    G.v[G.sel]=0; G.err[G.sel]=false; msg.textContent=''; render();
+  });
+  pad.appendChild(eb);
+
+  function autoCheckWin(){
+    for(var i=0;i<81;i++) if(G.v[i]!==G.S[i]) return;
+    G.done=true; msg.textContent='You solved it! Nicely done.'; msg.classList.add('win'); render();
+  }
+
+  document.getElementById('gCheck').addEventListener('click',function(){
+    if(G.done)return;
+    var errs=0, empty=0; G.err=[];
+    for(var i=0;i<81;i++){
+      if(G.P[i]){ G.err[i]=false; continue; }
+      if(!G.v[i]){ empty++; G.err[i]=false; }
+      else if(G.v[i]!==G.S[i]){ errs++; G.err[i]=true; }
+      else G.err[i]=false;
+    }
+    if(!errs&&!empty){ G.done=true; msg.textContent='You solved it! Nicely done.'; msg.classList.add('win'); }
+    else if(!errs){ msg.textContent='All correct so far — '+empty+' empty cells left.'; msg.classList.remove('win'); }
+    else { msg.textContent=errs+' wrong '+(errs===1?'cell':'cells')+' marked in red.'; msg.classList.remove('win'); }
+    render();
+  });
+
+  document.getElementById('gHint').addEventListener('click',function(){
+    if(G.done)return;
+    var idx=G.sel;
+    if(idx<0||G.P[idx]||G.v[idx]){ idx=-1; for(var i=0;i<81;i++) if(!G.P[i]&&!G.v[i]){ idx=i; break; } }
+    if(idx<0){ msg.textContent='No empty cells left.'; return; }
+    G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.sel=idx; msg.textContent=''; render(); autoCheckWin();
+  });
+
+  function startGame(){
+    var d=newPuzzle();
+    G={v:d.puzzle.slice(),P:d.puzzle,S:d.solution,sel:-1,err:[],hint:[],done:false};
+    msg.textContent=''; msg.classList.remove('win'); render();
+  }
+  document.getElementById('gNew').addEventListener('click',startGame);
+
+  document.addEventListener('keydown',function(e){
+    if(G.sel<0||G.done)return;
+    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=+e.key; G.err[G.sel]=false; msg.textContent=''; render(); autoCheckWin(); }
+    else if((e.key==='Backspace'||e.key==='Delete')&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=0; G.err[G.sel]=false; render(); }
+  });
+
+  startGame();
+})();
+</script>
+</body>
+</html>
