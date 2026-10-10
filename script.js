@@ -909,6 +909,12 @@ function renderDeals() {
               ${deal.description}
             </p>
 
+            ${deal.playUrl ? `
+              <div class="countdown-box" aria-label="Countdown to next daily puzzle">
+                <span aria-hidden="true">⏳</span>
+                <span>Next puzzle in <strong data-countdown>--:--:--</strong></span>
+              </div>
+            ` : `
             <div class="code-box">
               <code>${deal.code}</code>
 
@@ -920,6 +926,8 @@ function renderDeals() {
               >
                 ${expired ? "Expired" : "Copy"}
               </button>
+            </div>
+            `}
             </div>
 
             <div class="deal-meta">
@@ -1006,4 +1014,24 @@ if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
 }
 
+/* ---------- daily puzzle countdown (next 6:00 AM PT) ---------- */
+function laNow(){ return new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})); }
+function msToPuzzleReset(){
+  var n = laNow(), r = new Date(n);
+  r.setHours(6,0,0,0);
+  if(r <= n) r.setDate(r.getDate()+1);
+  return r - n;
+}
+function fmtCountdown(ms){
+  var s = Math.max(0, Math.floor(ms/1000));
+  function p(x){ return String(x).padStart(2,'0'); }
+  return p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60);
+}
+function tickDealCountdowns(){
+  var t = fmtCountdown(msToPuzzleReset());
+  document.querySelectorAll('[data-countdown]').forEach(function(el){ el.textContent = t; });
+}
+setInterval(tickDealCountdowns, 1000);
+
 renderDeals();
+tickDealCountdowns();

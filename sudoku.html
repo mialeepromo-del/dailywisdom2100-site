@@ -78,6 +78,11 @@
     #char-decor .c2 { top: -6px; right: 2%; animation-delay: -1.8s; }
     @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-13px) rotate(7deg); } }
 
+    .puzzle-countdown { text-align: center; margin: -6px 0 20px; }
+    .puzzle-countdown span { display: inline-block; background: #fff8e6; color: #a67c1a;
+      padding: 8px 18px; border-radius: 20px; font-weight: 600; font-size: 14px;
+      border: 1px dashed #e8c96a; font-variant-numeric: tabular-nums; }
+
     /* ---------- Playful game animations ---------- */
     .sound-btn { background: none; border: 0; font-size: 20px; cursor: pointer; vertical-align: middle; padding: 4px; }
     #game-wrap { position: relative; max-width: 480px; margin: 0 auto; }
@@ -134,6 +139,7 @@
     <a class="back-link" href="index.html#latest">&larr; Back to deals</a>
     <h1>Today's Sudoku</h1>
     <p class="sudoku-date" id="sudokuDate">Loading today&#8217;s puzzle...</p>
+    <p class="puzzle-countdown"><span id="puzzleCountdown">\u23F3 Next puzzle in --:--:--</span></p>
 
     <section id="play">
       <div id="char-decor" aria-hidden="true"></div>
@@ -367,18 +373,54 @@
     this.textContent = FX.toggle() ? '🔇' : '🔊';
   });
 
+  var loadedDate = null;
+  function applyDailyData(data){
+    loadedDate = data.date;
+    document.getElementById('sudokuDate').innerHTML = data.displayDate + ' &middot; ' + cap(data.difficulty);
+    var pz='images/sudoku_'+data.date+'_puzzle.svg', so='images/sudoku_'+data.date+'_solution.svg';
+    document.getElementById('flipFrontImg').src=pz;
+    document.getElementById('flipBackImg').src=so;
+    var dl=document.getElementById('dlBtn'); dl.href=pz; dl.setAttribute('download','sudoku-'+data.date+'.svg');
+    document.getElementById('printImg').src=pz;
+    document.getElementById('printSolImg').src=so;
+    startGame(data.puzzle, data.solution);
+  }
+
+  /* countdown to the next 6:00 AM PT reset */
+  function laNow(){ return new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})); }
+  function msToReset(){
+    var n = laNow(), r = new Date(n);
+    r.setHours(6,0,0,0);
+    if(r <= n) r.setDate(r.getDate()+1);
+    return r - n;
+  }
+  function fmtLeft(ms){
+    var s = Math.max(0, Math.floor(ms/1000));
+    function p(x){ return String(x).padStart(2,'0'); }
+    return p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60);
+  }
+  function tickCountdown(){
+    var el = document.getElementById('puzzleCountdown');
+    if(el) el.textContent = '⏳ Next puzzle in ' + fmtLeft(msToReset());
+  }
+  setInterval(tickCountdown, 1000); tickCountdown();
+
+  /* auto-load the fresh puzzle after the 6AM rollover */
+  setInterval(function(){
+    fetch('sudoku-daily.json?_='+Date.now())
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(data){
+        if(loadedDate && data.date !== loadedDate){
+          applyDailyData(data);
+          msg.textContent = 'A fresh puzzle has arrived! 🎉';
+          msg.classList.remove('win'); celebrate();
+        }
+      }).catch(function(){});
+  }, 60000);
+
   fetch('sudoku-daily.json')
     .then(function(r){ if(!r.ok) throw 0; return r.json(); })
-    .then(function(data){
-      document.getElementById('sudokuDate').innerHTML = data.displayDate + ' &middot; ' + cap(data.difficulty);
-      var pz='images/sudoku_'+data.date+'_puzzle.svg', so='images/sudoku_'+data.date+'_solution.svg';
-      document.getElementById('flipFrontImg').src=pz;
-      document.getElementById('flipBackImg').src=so;
-      var dl=document.getElementById('dlBtn'); dl.href=pz; dl.setAttribute('download','sudoku-'+data.date+'.svg');
-      document.getElementById('printImg').src=pz;
-      document.getElementById('printSolImg').src=so;
-      startGame(data.puzzle, data.solution);
-    })
+    .then(function(data){ applyDailyData(data); })
     .catch(function(){ msg.textContent="Couldn't load today's puzzle. Please try again later."; });
 
   document.addEventListener('keydown',function(e){
