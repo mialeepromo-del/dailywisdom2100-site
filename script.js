@@ -928,20 +928,20 @@ function renderDeals() {
               </button>
             </div>
             `}
+          </div>
 
-            <div class="deal-foot">
-              <div class="deal-meta deal-meta-bottom">
-                <span>
-                  ${expired ? "Expired" : (deal.expires || "")}
-                </span>
+          <div class="deal-foot">
+            <div class="deal-meta deal-meta-bottom">
+              <span>
+                ${expired ? "Expired" : (deal.expires || "")}
+              </span>
 
-                <span>
-                  ${getDealStatusText(deal)}
-                </span>
-              </div>
-
-              ${getDealButton(deal)}
+              <span>
+                ${getDealStatusText(deal)}
+              </span>
             </div>
+
+            ${getDealButton(deal)}
           </div>
         </article>
       `;
