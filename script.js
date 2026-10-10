@@ -1,31 +1,20 @@
 const deals = [
     {
-  title: "Today's Sudoku — Daily Puzzle (Oct 9)",
+  title: "Today's Sudoku — Daily Puzzle",
   category: "Freebies",
   benefit: "Free",
-  description: "A fresh Sudoku puzzle every morning. Solve it on screen or print it out — the answer key is posted right alongside.",
+  description: "A fresh Sudoku puzzle every morning. Tap the card to flip for the answer key, or hit Play Now for the interactive game, download, and print.",
   expires: "October 10, 2026",
   expiryDate: "2026-10-10",
   posted: "Oct 09, 2026",
   postingDate: "2026-10-09",
-  image: "images/sudoku_2026-10-09_puzzle.png",
+  image: "images/sudoku_2026-10-09_puzzle.svg",
+  imageBack: "images/sudoku_2026-10-09_solution.svg",
+  flip: true,
+  playUrl: "sudoku.html",
   emoji: "🧩",
   code: "NO CODE NEEDED",
-  affiliateLink: "https://dailywisdom2100-site.pages.dev/images/sudoku_2026-10-09_solution.png"
-}, 
-    {
-  title: "Today's Sudoku — Answer Key (Oct 9)",
-  category: "Freebies",
-  benefit: "Free",
-  description: "Stuck on today's Sudoku? Here is the full answer key. Given numbers are in black, solved numbers in blue.",
-  expires: "October 10, 2026",
-  expiryDate: "2026-10-10",
-  posted: "Oct 09, 2026",
-  postingDate: "2026-10-09",
-  image: "images/sudoku_2026-10-09_solution.png",
-  emoji: "🔑",
-  code: "NO CODE NEEDED",
-  affiliateLink: "https://dailywisdom2100-site.pages.dev/images/sudoku_2026-10-09_puzzle.png"
+  affiliateLink: "#affiliate-link-placeholder"
 }, 
     {
   title: "California Clean Air Day — Ride Free",
@@ -711,6 +700,32 @@ function isDealExpired(deal) {
 }
 
 function getDealImage(deal) {
+  if (deal.flip && deal.imageBack) {
+    return `
+      <div class="flip-card" data-flip role="button" tabindex="0" aria-label="Tap to flip between puzzle and answer">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img
+              src="${deal.image}"
+              alt="${deal.title} — puzzle"
+              class="deal-photo"
+              loading="lazy"
+            >
+          </div>
+          <div class="flip-back">
+            <img
+              src="${deal.imageBack}"
+              alt="${deal.title} — answer key"
+              class="deal-photo"
+              loading="lazy"
+            >
+          </div>
+        </div>
+        <span class="flip-hint">Tap to reveal answer</span>
+      </div>
+    `;
+  }
+
   if (deal.image) {
     return `
       <img
@@ -751,6 +766,17 @@ function getDealButton(deal) {
     `;
   }
 
+  if (deal.playUrl) {
+    return `
+      <a
+        href="${deal.playUrl}"
+        class="deal-button"
+      >
+        Play Now
+      </a>
+    `;
+  }
+
   if (hasActiveDealLink(deal)) {
     return `
       <a
@@ -778,6 +804,10 @@ function getDealButton(deal) {
 function getDealStatusText(deal) {
   if (isDealExpired(deal)) {
     return "Offer ended";
+  }
+
+  if (deal.playUrl) {
+    return "Play now";
   }
 
   if (!hasActiveDealLink(deal)) {
@@ -912,6 +942,24 @@ function renderDeals() {
 
 searchInput.addEventListener("input", renderDeals);
 categoryFilter.addEventListener("change", renderDeals);
+
+const dealGridEl = document.getElementById("dealGrid");
+if (dealGridEl) {
+  dealGridEl.addEventListener("click", function(e) {
+    const card = e.target.closest("[data-flip]");
+    if (card) {
+      card.classList.toggle("flipped");
+      const hint = card.querySelector(".flip-hint");
+      if (hint) hint.textContent = card.classList.contains("flipped") ? "Tap to go back" : "Tap to reveal answer";
+    }
+  });
+  dealGridEl.addEventListener("keydown", function(e) {
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-flip]")) {
+      e.preventDefault();
+      e.target.classList.toggle("flipped");
+    }
+  });
+}
 
 document.querySelectorAll(".category-card").forEach(button => {
   button.addEventListener("click", () => {
