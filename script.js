@@ -1,3 +1,26 @@
+/* ============================================================================
+   AFFILIATE LINK POLICY (revenue rule — updated 2026-10-10)
+   ----------------------------------------------------------------------------
+   RULE: Every deal's `affiliateLink` MUST be a tracked affiliate link whenever
+   an affiliate program exists for that merchant. A plain merchant URL is only
+   allowed as a fallback when no program exists — never as the first choice.
+
+   Adding a new deal? Checklist:
+     1. Check if the merchant (or a gift-card/marketplace carrying the offer)
+        is in one of the programs below. If yes → use your affiliate link.
+     2. Amazon sells it? → use your Amazon Associates link (amzn.to).
+     3. No program at all? → direct URL is fine, but leave a
+        `// TODO(affiliate):` note so it can be upgraded later.
+     4. Freebies / promo codes with no purchase → no commission possible;
+        they earn via AdSense only. Keep them as traffic bait, not revenue.
+
+   IMPACT (site already verified — apply inside impact.com dashboard):
+     Food delivery ....: Grubhub, DoorDash, Uber Eats
+     Movies ...........: Fandango, Atom Tickets
+     Gift cards .......: GiftCardMall, Raise, CardCash (or via Amazon)
+     Travel ...........: Booking.com, Expedia, Viator, Klook
+     General retail ...: Amazon Associates (separate signup), Walmart, Target
+   ============================================================================ */
 const deals = [
     {
   title: "Today's Sudoku — Daily Puzzle",
