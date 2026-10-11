@@ -1089,23 +1089,6 @@ h2 {
   line-height: 1.8;
 }
 
-.info-page-content .verify-list,
-.privacy-content .verify-list {
-  max-width: 700px;
-
-  margin: 0 0 17px;
-  padding-left: 22px;
-
-  color: #606060;
-
-  line-height: 1.8;
-}
-
-.info-page-content .verify-list li,
-.privacy-content .verify-list li {
-  margin-bottom: 8px;
-}
-
 .about-feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
