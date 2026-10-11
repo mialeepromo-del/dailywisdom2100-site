@@ -37,6 +37,20 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 }, 
     {
+  title: "FREE Grilled Chicken Sandwich at Habit Burger",
+  category: "Food",
+  benefit: "Free",
+  description: "MyHabit members can get a FREE Grilled Chicken Sandwich — chargrilled chicken topped with melted cheese, caramelized onions, BBQ sauce, and mayo on a toasted wheat bun — with a qualifying $8 or more purchase at participating Habit Burger & Grill locations. Limit one redemption per member. Valid October 7 through October 13, 2026. Taxes and fees excluded.",
+  expires: "October 13, 2026",
+  expiryDate: "2026-10-13",
+  posted: "Oct 11, 2026",
+  postingDate: "2026-10-11",
+  image: "images/Habit Burger Free Grilled Chicken Sandwich.svg",
+  emoji: "🍔",
+  code: "APP Offer",
+  affiliateLink: "https://order.habitburger.com/my-offers"
+}, 
+    {
   title: "California Clean Air Day — Ride Free",
   category: "Freebies",
   benefit: "Free",
