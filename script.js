@@ -420,7 +420,7 @@ const deals = [
   image: "images/ChatGPT Image Aug 10, 2026, 10_37_39 AM.png",
   emoji: "🥤",
   code: "FRSHDROP2",
-  affiliateLink: "https://https://www.dunkindonuts.com/en/dunkinrewards"
+  affiliateLink: "https://www.dunkindonuts.com/en/dunkinrewards"
 },
   
   {
