@@ -193,8 +193,8 @@
 
     <div id="fortune-overlay" aria-hidden="true">
       <div class="fortune-box" role="dialog" aria-label="Today's fortune cookie">
-        <div id="fortune-cookie" role="button" tabindex="0" aria-label="Tap to crack the fortune cookie">🥠</div>
-        <p id="fortune-prompt">You solved today's puzzle!<br>Tap the cookie for your fortune.</p>
+        <div id="fortune-cookie" aria-hidden="true">🥠</div>
+        <p id="fortune-prompt">You solved today's puzzle!<br>Cracking open your fortune…</p>
         <div id="fortune-slip" hidden>
           <p class="fortune-kicker">🥠 Today's fortune</p>
           <p id="fortune-text"></p>
@@ -312,7 +312,7 @@
 
   function celebrate(){
     FX.confetti(); FX.win(); FX.stamp('🎉', 'yeah');
-    setTimeout(showFortune, 1100);
+    showFortune();
   }
   function bonk(){
     FX.wrong(); FX.stamp('Oops!', 'buzz');
@@ -367,23 +367,15 @@
     ck.classList.remove('cracked'); ck.style.display='';
     slip.hidden=true; close.hidden=true; prompt.style.display='';
     ov.classList.add('show'); ov.setAttribute('aria-hidden','false');
-  }
-  function crackCookie(){
-    var ck=document.getElementById('fortune-cookie');
-    if(ck.classList.contains('cracked'))return;
-    ck.classList.add('cracked'); FX.pop();
+    /* cookie cracks open on its own, fortune reveals right away */
     setTimeout(function(){
-      ck.style.display='none';
-      document.getElementById('fortune-prompt').style.display='none';
-      document.getElementById('fortune-slip').hidden=false;
-      document.getElementById('fortune-close').hidden=false;
-      FX.win();
-    },380);
+      ck.classList.add('cracked'); FX.pop();
+      setTimeout(function(){
+        ck.style.display='none'; prompt.style.display='none';
+        slip.hidden=false; close.hidden=false;
+      },380);
+    },750);
   }
-  document.getElementById('fortune-cookie').addEventListener('click',crackCookie);
-  document.getElementById('fortune-cookie').addEventListener('keydown',function(e){
-    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); crackCookie(); }
-  });
   document.getElementById('fortune-close').addEventListener('click',function(){
     var ov=document.getElementById('fortune-overlay');
     ov.classList.remove('show'); ov.setAttribute('aria-hidden','true');
