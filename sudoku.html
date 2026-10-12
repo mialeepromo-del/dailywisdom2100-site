@@ -71,6 +71,8 @@
     .timer-row { text-align: center; margin: 2px 0 12px; }
     #gameTimer { display: inline-block; background: #f2f5fd; color: #3b5bbf; padding: 6px 18px;
       border-radius: 18px; font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .fortune-teaser { text-align: center; color: #b98a2f; font-size: 14px; font-weight: 600;
+      margin: -8px 0 16px; }
     #game-grid .cell .pencil { display: grid; grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr); width: 100%; height: 100%; pointer-events: none; }
     #game-grid .cell .pencil span { display: flex; align-items: center; justify-content: center;
@@ -180,6 +182,7 @@
       <h2>Play Now <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle sound">🔊</button></h2>
       <div class="timer-row"><span id="gameTimer">⏱ 00:00</span></div>
       <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Double-tap a number to erase it, or press ⌫ to undo entries one by one. Turn on ✏️ Notes to pencil in candidates.</p>
+      <p class="fortune-teaser">🥠 Finish today's puzzle to crack open your fortune cookie!</p>
       <div id="game-wrap"><div id="game-grid" role="grid" aria-label="Sudoku board"></div><div id="game-stamp" aria-hidden="true"></div></div>
       <div id="game-pad"></div>
       <div class="game-row">
