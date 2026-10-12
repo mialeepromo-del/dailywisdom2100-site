@@ -67,6 +67,14 @@
     .game-row button { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #ddd; background: #fff;
       cursor: pointer; font-size: 14px; font-weight: 600; color: #1e1e1e; }
     .game-row button.primary { background: #1e1e1e; color: #fff; border-color: #1e1e1e; }
+    .game-row button.active { background: #e8eefc; border-color: #2563eb; color: #1d4ed8; }
+    .timer-row { text-align: center; margin: 2px 0 12px; }
+    #gameTimer { display: inline-block; background: #f2f5fd; color: #3b5bbf; padding: 6px 18px;
+      border-radius: 18px; font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+    #game-grid .cell .pencil { display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr); width: 100%; height: 100%; pointer-events: none; }
+    #game-grid .cell .pencil span { display: flex; align-items: center; justify-content: center;
+      font-size: clamp(8px, 2.2vw, 11px); color: #8a8f9e; font-weight: 600; }
     #game-msg { text-align: center; min-height: 24px; color: #666; margin-top: 12px; font-size: 14px; }
     #game-msg.win { color: #1a7f37; font-weight: 700; font-size: 18px; }
 
@@ -106,6 +114,29 @@
     @keyframes confettiFall { to { transform: translateY(112vh) rotate(720deg); } }
     #game-pad button { transition: transform .08s ease; }
     #game-pad button:active { transform: scale(.92); }
+
+    /* ---------- fortune cookie ---------- */
+    #fortune-overlay { position: fixed; inset: 0; z-index: 10000; display: none;
+      align-items: center; justify-content: center; padding: 24px;
+      background: rgba(30,30,30,.45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+    #fortune-overlay.show { display: flex; }
+    .fortune-box { background: #fffdf7; border-radius: 20px; max-width: 380px; width: 100%;
+      padding: 36px 28px 30px; text-align: center; box-shadow: 0 24px 70px rgba(0,0,0,.28);
+      border: 1px solid #f0e2c8; animation: fortunePop .45s ease; }
+    @keyframes fortunePop { 0% { transform: scale(.7); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    #fortune-cookie { font-size: 96px; cursor: pointer; display: inline-block;
+      animation: cookieWiggle 1.6s ease-in-out infinite; }
+    @keyframes cookieWiggle { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg) scale(1.06); } }
+    #fortune-cookie.cracked { animation: cookieCrack .4s ease forwards; }
+    @keyframes cookieCrack { 40% { transform: scale(1.25) rotate(10deg); } 100% { transform: scale(0) rotate(40deg); opacity: 0; } }
+    #fortune-prompt { color: #8a6d3b; font-size: 15px; margin: 14px 0 0; line-height: 1.5; }
+    #fortune-slip { margin-top: 6px; animation: slipIn .5s ease; }
+    @keyframes slipIn { 0% { transform: translateY(14px); opacity: 0; } 100% { transform: none; opacity: 1; } }
+    .fortune-kicker { color: #b98a2f; font-size: 13px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 10px; }
+    #fortune-text { font-family: 'Playfair Display', serif; font-size: 21px; line-height: 1.55;
+      color: #3a2f1d; margin: 0 0 20px; }
+    #fortune-close { width: 100%; }
 
     /* Print: puzzle page 1, answer key page 2 */
     #print-sheet { display: none; }
@@ -147,16 +178,30 @@
     <section id="play">
       <div id="char-decor" aria-hidden="true"></div>
       <h2>Play Now <button type="button" id="soundToggle" class="sound-btn" aria-label="Toggle sound">🔊</button></h2>
-      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Double-tap a number to erase it, or press ⌫ to undo entries one by one.</p>
+      <div class="timer-row"><span id="gameTimer">⏱ 00:00</span></div>
+      <p class="sub">One puzzle a day &mdash; tap a cell, then pick a number. Double-tap a number to erase it, or press ⌫ to undo entries one by one. Turn on ✏️ Notes to pencil in candidates.</p>
       <div id="game-wrap"><div id="game-grid" role="grid" aria-label="Sudoku board"></div><div id="game-stamp" aria-hidden="true"></div></div>
       <div id="game-pad"></div>
       <div class="game-row">
         <button type="button" id="gCheck" class="primary">Check</button>
+        <button type="button" id="gNotes">✏️ Notes</button>
         <button type="button" id="gHint">Hint</button>
         <button type="button" id="gReset">Reset</button>
       </div>
       <p id="game-msg"></p>
     </section>
+
+    <div id="fortune-overlay" aria-hidden="true">
+      <div class="fortune-box" role="dialog" aria-label="Today's fortune cookie">
+        <div id="fortune-cookie" role="button" tabindex="0" aria-label="Tap to crack the fortune cookie">🥠</div>
+        <p id="fortune-prompt">You solved today's puzzle!<br>Tap the cookie for your fortune.</p>
+        <div id="fortune-slip" hidden>
+          <p class="fortune-kicker">🥠 Today's fortune</p>
+          <p id="fortune-text"></p>
+        </div>
+        <button type="button" id="fortune-close" class="btn primary" hidden>Keep it 💛</button>
+      </div>
+    </div>
 
     <hr class="section-divider">
 
@@ -267,16 +312,95 @@
 
   function celebrate(){
     FX.confetti(); FX.win(); FX.stamp('🎉', 'yeah');
+    setTimeout(showFortune, 1100);
   }
   function bonk(){
     FX.wrong(); FX.stamp('Oops!', 'buzz');
     grid.classList.remove('shake'); void grid.offsetWidth; grid.classList.add('shake');
   }
 
+  /* ---------- fortune cookie: one warm line a day ---------- */
+  var FORTUNES=[
+    "A calm mind solves the hardest puzzles \u2014 in games and in life.",
+    "Small steps every day lead to big changes.",
+    "You showed up today. That already counts for a lot.",
+    "Patience is a superpower. You just proved it.",
+    "Good things are quietly making their way to you.",
+    "Trust the process \u2014 you're exactly where you need to be.",
+    "Your persistence today will pay off tomorrow.",
+    "Take a breath. You've earned this little victory.",
+    "The best ideas arrive when the mind is at play.",
+    "Kindness you give today returns to you doubled.",
+    "A fresh puzzle, a fresh start \u2014 every morning is a gift.",
+    "You don't have to be perfect to make progress.",
+    "Someone is grateful you exist. Yes, really.",
+    "Slow down and savor the small wins.",
+    "Your focus is your fortune.",
+    "Today, choose joy \u2014 even in tiny doses.",
+    "The answer was inside you all along.",
+    "Keep going. You're closer than you think.",
+    "A clear head and a warm heart can solve anything.",
+    "Celebrate this win \u2014 then chase the next one.",
+    "Good luck follows those who keep trying.",
+    "You turned a blank grid into order. Imagine what else you can do.",
+    "Rest is part of the work. Take it when you need it.",
+    "Your effort today plants seeds for tomorrow.",
+    "Stay curious \u2014 it keeps life interesting.",
+    "One puzzle, one day, one victory at a time.",
+    "The universe rewards a playful mind.",
+    "You're doing better than you think.",
+    "Make room for something wonderful today.",
+    "Consistency beats intensity. You proved it again.",
+    "Shine gently \u2014 the world notices."
+  ];
+  function fortuneIndex(){
+    var n=laNow(), start=new Date(n.getFullYear(),0,0);
+    return Math.floor((n-start)/864e5)%FORTUNES.length;
+  }
+  function showFortune(){
+    var ov=document.getElementById('fortune-overlay'),
+        ck=document.getElementById('fortune-cookie'),
+        slip=document.getElementById('fortune-slip'),
+        close=document.getElementById('fortune-close'),
+        prompt=document.getElementById('fortune-prompt');
+    document.getElementById('fortune-text').textContent='\u201C'+FORTUNES[fortuneIndex()]+'\u201D';
+    ck.classList.remove('cracked'); ck.style.display='';
+    slip.hidden=true; close.hidden=true; prompt.style.display='';
+    ov.classList.add('show'); ov.setAttribute('aria-hidden','false');
+  }
+  function crackCookie(){
+    var ck=document.getElementById('fortune-cookie');
+    if(ck.classList.contains('cracked'))return;
+    ck.classList.add('cracked'); FX.pop();
+    setTimeout(function(){
+      ck.style.display='none';
+      document.getElementById('fortune-prompt').style.display='none';
+      document.getElementById('fortune-slip').hidden=false;
+      document.getElementById('fortune-close').hidden=false;
+      FX.win();
+    },380);
+  }
+  document.getElementById('fortune-cookie').addEventListener('click',crackCookie);
+  document.getElementById('fortune-cookie').addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); crackCookie(); }
+  });
+  document.getElementById('fortune-close').addEventListener('click',function(){
+    var ov=document.getElementById('fortune-overlay');
+    ov.classList.remove('show'); ov.setAttribute('aria-hidden','true');
+  });
+
   /* ---------- game UI ---------- */
-  var G={v:[],P:[],S:[],sel:-1,err:[],hint:[],done:false};
+  var G={v:[],P:[],S:[],sel:-1,err:[],hint:[],done:false,notes:[],notesMode:false};
   var grid=document.getElementById('game-grid'), pad=document.getElementById('game-pad'),
       msg=document.getElementById('game-msg');
+
+  /* ---------- timer ---------- */
+  var T={t0:0,int:null};
+  function fmtT(ms){ var s=Math.floor(ms/1000); function p(x){ return String(x).padStart(2,'0'); } return p(Math.floor(s/60))+':'+p(s%60); }
+  function timerTick(){ var el=document.getElementById('gameTimer'); if(el) el.textContent='\u23F1 '+fmtT(Date.now()-T.t0); }
+  function timerStart(){ if(T.int||G.done)return; T.t0=Date.now(); T.int=setInterval(timerTick,500); timerTick(); }
+  function timerStop(){ if(T.int){ clearInterval(T.int); T.int=null; } }
+  function timerReset(){ timerStop(); var el=document.getElementById('gameTimer'); if(el) el.textContent='\u23F1 00:00'; }
 
   function peers(i){ var r=(i/9)|0,c=i%9,s={}; for(var k=0;k<9;k++){ s[r*9+k]=1; s[k*9+c]=1; }
     var br=3*((r/3)|0),bc=3*((c/3)|0);
@@ -294,6 +418,11 @@
         if(r===2||r===5)b.classList.add('thick-b');
         if(G.P[idx]){ b.textContent=G.P[idx]; b.classList.add('given'); }
         else if(G.v[idx]){ b.textContent=G.v[idx]; if(G.hint[idx])b.classList.add('hintv'); }
+        else if(G.notes[idx]&&G.notes[idx].length){
+          var pg=document.createElement('div'); pg.className='pencil';
+          for(var dgt=1;dgt<=9;dgt++){ var sp=document.createElement('span'); sp.textContent=G.notes[idx].indexOf(dgt)>=0?dgt:''; pg.appendChild(sp); }
+          b.appendChild(pg);
+        }
         if(idx===G.popCell)b.classList.add('pop');
         if(idx===G.sel)b.classList.add('sel');
         else if(G.sel>=0&&ps[idx])b.classList.add('peer');
@@ -314,12 +443,25 @@
     G.popCell = -1;
   }
 
+  function toggleNote(idx,num){
+    var ns=G.notes[idx], at=ns.indexOf(num);
+    if(at>=0)ns.splice(at,1); else { ns.push(num); ns.sort(); }
+    msg.textContent=''; render(); FX.pop(); timerStart();
+  }
+  function setValue(idx,num){
+    G.v[idx]=num; G.err[idx]=false; G.notes[idx]=[];
+    var ps=peers(idx);
+    for(var j=0;j<81;j++){ if(ps[j]&&j!==idx){ var ns=G.notes[j], at=ns.indexOf(num); if(at>=0)ns.splice(at,1); } }
+    G.popCell=idx; G.history.push(idx); msg.textContent=''; render(); FX.pop(); timerStart(); autoCheckWin();
+  }
+
   for(var n=1;n<=9;n++){
     (function(num){
       var b=document.createElement('button'); b.type='button'; b.textContent=num;
       b.addEventListener('click',function(){
         if(G.sel<0||G.P[G.sel]||G.hint[G.sel]||G.done)return;
-        G.v[G.sel]=num; G.err[G.sel]=false; G.popCell=G.sel; G.history.push(G.sel); msg.textContent=''; render(); FX.pop(); autoCheckWin();
+        if(G.notesMode){ if(G.v[G.sel])return; toggleNote(G.sel,num); return; }
+        setValue(G.sel,num);
       });
       pad.appendChild(b);
     })(n);
@@ -339,8 +481,17 @@
 
   function autoCheckWin(){
     for(var i=0;i<81;i++) if(G.v[i]!==G.S[i]) return;
-    G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); render(); celebrate();
+    G.done=true; timerStop(); msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); render(); celebrate();
   }
+
+  document.getElementById('gNotes').addEventListener('click',function(){
+    if(G.done)return;
+    G.notesMode=!G.notesMode;
+    this.classList.toggle('active',G.notesMode);
+    this.innerHTML=G.notesMode?'\u270F\uFE0F Notes ON':'\u270F\uFE0F Notes';
+    msg.textContent=G.notesMode?'Notes mode on \u2014 tap numbers to pencil in candidates.':'';
+    msg.classList.remove('win'); FX.pop();
+  });
 
   document.getElementById('gCheck').addEventListener('click',function(){
     if(G.done)return;
@@ -351,7 +502,7 @@
       else if(G.v[i]!==G.S[i]){ errs++; G.err[i]=true; }
       else G.err[i]=false;
     }
-    if(!errs&&!empty){ G.done=true; msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); celebrate(); }
+    if(!errs&&!empty){ G.done=true; timerStop(); msg.textContent='You solved it! Come back tomorrow for a new puzzle.'; msg.classList.add('win'); celebrate(); }
     else if(!errs){ msg.textContent='All correct so far — '+empty+' empty cells left.'; msg.classList.remove('win'); }
     else { msg.textContent=errs+' wrong '+(errs===1?'cell':'cells')+' marked in red.'; msg.classList.remove('win'); bonk(); }
     render();
@@ -362,20 +513,26 @@
     var idx=G.sel;
     if(idx<0||G.P[idx]||G.v[idx]){ idx=-1; for(var i=0;i<81;i++) if(!G.P[i]&&!G.v[i]){ idx=i; break; } }
     if(idx<0){ msg.textContent='No empty cells left.'; return; }
-    G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.sel=idx; G.history.push(idx); msg.textContent=''; render(); autoCheckWin();
+    G.v[idx]=G.S[idx]; G.hint[idx]=true; G.err[idx]=false; G.notes[idx]=[]; G.sel=idx; G.history.push(idx); msg.textContent=''; render(); timerStart(); autoCheckWin();
   });
 
   document.getElementById('gReset').addEventListener('click',function(){
     if(G.done)return;
     var hasEntry=false;
-    for(var i=0;i<81;i++) if(!G.P[i]&&G.v[i]){ hasEntry=true; break; }
+    for(var i=0;i<81;i++) if(!G.P[i]&&(G.v[i]||G.notes[i].length)){ hasEntry=true; break; }
     if(!hasEntry)return;
-    G.v=G.P.slice(); G.err=[]; G.hint=[]; G.sel=-1; G.history=[];
+    G.v=G.P.slice(); G.err=[]; G.hint=[]; G.notes=[]; for(var j=0;j<81;j++)G.notes.push([]);
+    G.sel=-1; G.history=[]; G.notesMode=false;
+    var nb=document.getElementById('gNotes'); nb.classList.remove('active'); nb.innerHTML='\u270F\uFE0F Notes';
+    timerReset();
     msg.textContent='Fresh start — good luck!'; msg.classList.remove('win'); render(); FX.pop();
   });
 
   function startGame(puzzle, solution){
-    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false,popCell:-1,history:[]};
+    G={v:puzzle.slice(),P:puzzle,S:solution,sel:-1,err:[],hint:[],done:false,popCell:-1,history:[],notes:[],notesMode:false};
+    for(var i=0;i<81;i++)G.notes.push([]);
+    var nb=document.getElementById('gNotes'); if(nb){ nb.classList.remove('active'); nb.innerHTML='\u270F\uFE0F Notes'; }
+    timerReset();
     msg.textContent=''; msg.classList.remove('win'); render();
   }
 
@@ -435,7 +592,11 @@
 
   document.addEventListener('keydown',function(e){
     if(G.sel<0||G.done)return;
-    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=+e.key; G.err[G.sel]=false; G.popCell=G.sel; G.history.push(G.sel); msg.textContent=''; render(); FX.pop(); autoCheckWin(); }
+    if(e.key>='1'&&e.key<='9'&&!G.P[G.sel]&&!G.hint[G.sel]){
+      var num=+e.key;
+      if(G.notesMode){ if(!G.v[G.sel]) toggleNote(G.sel,num); }
+      else setValue(G.sel,num);
+    }
     else if((e.key==='Backspace'||e.key==='Delete')&&!G.P[G.sel]&&!G.hint[G.sel]){ G.v[G.sel]=0; G.err[G.sel]=false; render(); }
   });
 
