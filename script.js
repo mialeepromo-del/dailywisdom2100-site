@@ -40,7 +40,7 @@ const deals = [
   title: "100% Back in Points on Luggage \u2014 Staples",
   category: "Travel",
   benefit: "100% Back in Points",
-  description: "Today only (Tuesday, Oct 13): Staples Easy Rewards members get 100% back in points on all luggage and travel accessories \u2014 up to $150 in points. Valid in-store and online. Activate the offer in your Easy Rewards dashboard before checkout. Excludes clearance.",
+  description: "Today only (Tuesday, Oct 13): Staples Easy Rewards members get 100% back in points on all luggage and travel accessories \u2014 up to $150 in points. Valid in-store and online. The offer needs to be activated prior to purchase via your Easy Rewards dashboard. Excludes clearance.",
   expires: "October 13, 2026",
   expiryDate: "2026-10-13",
   posted: "Oct 13, 2026",
@@ -49,7 +49,7 @@ const deals = [
   emoji: "\U0001F9F3",
   code: "NO CODE NEEDED",
   // TODO(affiliate): no Staples program in our stack; direct URL fallback.
-  affiliateLink: "https://www.staples.com/mydeals"
+  affiliateLink: "https://www.staples.com/lp/easy-deal-days?ivid=Pg:HDR;Pl:BTMBR;Pt:SLT3;Cmp:Easy_Deal_Days"
 }, 
     {
   title: "$10 Off Starbucks Gift Cards ($75+) \u2014 Google Play",
