@@ -37,6 +37,20 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 }, 
     {
+  title: "FREE Slider at Dave's Hot Chicken \u2014 Dave's Day",
+  category: "Food",
+  benefit: "Free",
+  description: "It\u2019s Dave\u2019s Day! Get a FREE Slider today, Tuesday, October 13, 2026 \u2014 today only. Download the Dave\u2019s app, visit any participating Dave\u2019s Hot Chicken location, and scan the reward in the app to redeem. No purchase necessary.",
+  expires: "October 13, 2026",
+  expiryDate: "2026-10-13",
+  posted: "Oct 13, 2026",
+  postingDate: "2026-10-13",
+  image: "images/Free Slider_ Dave\u2019s Day Offer.png",
+  emoji: "\U0001F357",
+  code: "APP Offer",
+  affiliateLink: "https://www.daveshotchicken.com/"
+}, 
+    {
   title: "BOGO Toasted or Favorite Sandwich at Jimmy John's",
   category: "Food",
   benefit: "BOGO",
