@@ -47,7 +47,7 @@ const deals = [
   emoji: "\U0001F381",
   code: "NO CODE NEEDED",
   // TODO(affiliate): Google Play has no affiliate program in our stack; upgrade if one becomes available.
-  affiliateLink: "https://play.google.com/store"
+  affiliateLink: "https://play.google.com/store/giftcards?hl=en"
 }, 
     {
   title: "FREE Slider at Dave's Hot Chicken \u2014 Dave's Day",
