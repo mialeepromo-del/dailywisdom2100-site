@@ -37,6 +37,19 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 }, 
     {
+  title: "$10 Off Starbucks Gift Cards ($75+) \u2014 Google Play",
+  category: "Gift Cards",
+  benefit: "$10 Off",
+  description: "Google Play has select eGift cards on sale \u2014 get $10 off Starbucks gift cards of $75 or more. No code needed; the discount applies at checkout. Limited time.",
+  posted: "Oct 13, 2026",
+  postingDate: "2026-10-13",
+  image: "images/Google Play and Starbucks Gift Card Deal.png",
+  emoji: "\U0001F381",
+  code: "NO CODE NEEDED",
+  // TODO(affiliate): Google Play has no affiliate program in our stack; upgrade if one becomes available.
+  affiliateLink: "https://play.google.com/store"
+}, 
+    {
   title: "FREE Slider at Dave's Hot Chicken \u2014 Dave's Day",
   category: "Food",
   benefit: "Free",
