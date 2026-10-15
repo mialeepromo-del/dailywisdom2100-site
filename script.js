@@ -23,6 +23,22 @@
    ============================================================================ */
 const deals = [
     {
+  title: "BOGO Free Pastry \u2014 Paris Baguette (Boss's Day)",
+  category: "Food",
+  benefit: "BOGO Free",
+  pinned: true,
+  description: "Celebrate Boss's Day with a sweet treat! \ud83c\udf89 Buy 1 pastry, get 1 FREE of equal or lesser value. Friday, October 16 only. Purchase required; limit 1 BOGO offer per PB Rewards member. Some items excluded.",
+  expires: "October 16, 2026",
+  expiryDate: "2026-10-16",
+  posted: "Oct 15, 2026",
+  postingDate: "2026-10-15",
+  image: "images/paris-baguette-boss-day-bogo.jpg",
+  emoji: "🥐",
+  code: "NO CODE NEEDED",
+  // TODO(affiliate): no Paris Baguette program in our stack; direct URL fallback.
+  affiliateLink: "https://www.parisbaguette.com/rewards"
+}, 
+    {
   title: "Today's Sudoku — Daily Puzzle",
   category: "Freebies",
   benefit: "Free",
