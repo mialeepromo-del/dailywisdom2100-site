@@ -37,6 +37,20 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 }, 
     {
+  title: "FREE Double Char Burger at Habit Burger & Grill",
+  category: "Food",
+  benefit: "Free",
+  description: "Limited time! Get a FREE Double Char Burger with a qualifying $8 minimum purchase at Habit Burger & Grill. Gotta Habit\u2122 Meal Deals cannot be included in the order. Check the offer terms before ordering to confirm eligibility.",
+  expires: "October 25, 2026",
+  expiryDate: "2026-10-25",
+  posted: "Oct 21, 2026",
+  postingDate: "2026-10-21",
+  image: "images/Free Double Char Burger Deal.png",
+  emoji: "\uD83C\uDF54",
+  code: "APP Offer",
+  affiliateLink: "https://order.habitburger.com/my-offers"
+}, 
+    {
   title: "BOGO Free Pastry \u2014 Paris Baguette (Boss's Day)",
   category: "Food",
   benefit: "BOGO Free",
