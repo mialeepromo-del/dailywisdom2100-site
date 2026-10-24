@@ -548,11 +548,11 @@
     startGame(data.puzzle, data.solution);
   }
 
-  /* countdown to the next 6:00 AM PT reset */
+  /* countdown to the next midnight PT reset */
   function laNow(){ return new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})); }
   function msToReset(){
     var n = laNow(), r = new Date(n);
-    r.setHours(6,0,0,0);
+    r.setHours(0,0,0,0);
     if(r <= n) r.setDate(r.getDate()+1);
     return r - n;
   }
@@ -567,7 +567,7 @@
   }
   setInterval(tickCountdown, 1000); tickCountdown();
 
-  /* auto-load the fresh puzzle after the 6AM rollover */
+  /* auto-load the fresh puzzle after the midnight rollover */
   setInterval(function(){
     fetch('sudoku-daily.json?_='+Date.now())
       .then(function(r){ if(!r.ok) throw 0; return r.json(); })

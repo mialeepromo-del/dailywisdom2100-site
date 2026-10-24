@@ -1093,11 +1093,11 @@ if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
 }
 
-/* ---------- daily puzzle countdown (next 6:00 AM PT) ---------- */
+/* ---------- daily puzzle countdown (next midnight PT) ---------- */
 function laNow(){ return new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})); }
 function msToPuzzleReset(){
   var n = laNow(), r = new Date(n);
-  r.setHours(6,0,0,0);
+  r.setHours(0,0,0,0);
   if(r <= n) r.setDate(r.getDate()+1);
   return r - n;
 }
