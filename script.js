@@ -35,7 +35,21 @@ const deals = [
   emoji: "🧩",
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
-}, 
+},
+    {
+  title: "Yogurtland BOGO FREE — Fan Appreciation Day",
+  category: "Food",
+  benefit: "BOGO",
+  description: "Celebrate Fan Appreciation Day with a sweet deal! Buy 1 frozen yogurt, get 1 FREE of equal or lesser value. Real Rewards members earn 2X points. Wednesday, October 28, 2026 only. In-store only at participating locations. No coupon needed. Limit one offer per transaction. Cannot be combined with other offers. While supplies last.",
+  expires: "October 28, 2026",
+  expiryDate: "2026-10-28",
+  posted: "Oct 28, 2026",
+  postingDate: "2026-10-28",
+  image: "images/Yogurtland Fan Appreciation Day Ad.png",
+  emoji: "🍦",
+  code: "No coupon needed",
+  affiliateLink: "https://www.yogurtland.com"
+},
     {
   title: "FREE Double Char Burger at Habit Burger & Grill",
   category: "Food",
