@@ -37,6 +37,21 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 },
     {
+  title: "FREE Movie Ticket — Paper Tiger",
+  category: "Movie",
+  benefit: "Free",
+  description: "Want to catch a movie for FREE? Atom Tickets is offering 1 FREE movie ticket to see Paper Tiger with promo code ATOMTIGER. No special membership required. Valid at participating U.S. theaters. Select Paper Tiger on Atom Tickets, add at least one ticket to your basket, and enter promo code ATOMTIGER at checkout. One-time use per customer. Must cancel tickets before showtime if you can't attend. Limited quantities available, while supplies last.",
+  expires: "November 9, 2026",
+  expiryDate: "2026-11-09",
+  posted: "Oct 30, 2026",
+  postingDate: "2026-10-30",
+  image: "images/Free Movie Ticket Deal Poster (1).png",
+  emoji: "🎬",
+  code: "ATOMTIGER",
+  // TODO(affiliate): direct Atom URL fallback; upgrade to tracked link if an Atom program link is issued.
+  affiliateLink: "https://www.atomtickets.com"
+},
+    {
   title: "Yogurtland BOGO FREE — Fan Appreciation Day",
   category: "Food",
   benefit: "BOGO",
