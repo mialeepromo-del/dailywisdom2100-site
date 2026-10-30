@@ -37,6 +37,21 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 },
     {
+  title: "FREE Pastry — Paris Baguette (Halloween)",
+  category: "Food",
+  benefit: "Free",
+  description: "Halloween treat alert! Paris Baguette Rewards members can get a FREE pastry, cookie, brownie, or donut with any beverage purchase. Choose a free pastry, cookie, brownie, or donut. Saturday, October 31, 2026 only. One offer per rewards member. Exclusions apply. Cannot be combined with other offers, rewards, or discounts. Bottled, canned, and alcoholic beverages excluded. Free item must be of equal or lesser value.",
+  expires: "October 31, 2026",
+  expiryDate: "2026-10-31",
+  posted: "Oct 30, 2026",
+  postingDate: "2026-10-30",
+  image: "images/Paris Baguette Halloween Pastry Deal.png",
+  emoji: "🥐",
+  code: "PB Rewards",
+  // TODO(affiliate): no Paris Baguette program in our stack; direct URL fallback.
+  affiliateLink: "https://www.parisbaguette.com/rewards"
+},
+    {
   title: "FREE Movie Ticket — Paper Tiger",
   category: "Movie",
   benefit: "Free",
