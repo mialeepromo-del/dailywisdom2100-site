@@ -28,26 +28,13 @@ const deals = [
   benefit: "Free",
   pinned: true,
   description: "One fresh Sudoku every morning \u2014 gone by tomorrow. Hit Play Now to play, download, or print today's puzzle before it disappears.",
-  posted: "Oct 31, 2026",
-  postingDate: "2026-10-31",
-  image: "images/sudoku_2026-10-31_puzzle.svg",
+  posted: "Nov 01, 2026",
+  postingDate: "2026-11-01",
+  image: "images/sudoku_2026-11-01_puzzle.svg",
   playUrl: "sudoku.html",
   emoji: "🧩",
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
-},
-    {
-  title: "FREE illy Espresso Machine — Y3.3 (with Coffee Purchase)",
-  category: "Freebies",
-  benefit: "Free",
-  description: "Coffee lovers, here is a deal worth checking out! Get a FREE illy Y3.3 Espresso Machine when you purchase 3 cases of illy capsules (18 cans / 324 capsules). Upgrade to the X7.1 machine for an additional $100. Estimated minimum capsule cost: around $359+ before tax (based on reference pricing; actual illy checkout price may vary).",
-  posted: "Oct 31, 2026",
-  postingDate: "2026-10-31",
-  image: "images/Illy Free Espresso Machine Offer.png",
-  emoji: "☕",
-  code: "NO CODE NEEDED",
-  // TODO(affiliate): no illy program in our stack; direct URL fallback.
-  affiliateLink: "https://www.illy.com/en-us/free-machine-event-details"
 },
     {
   title: "FREE Pastry — Paris Baguette (Halloween)",
