@@ -37,6 +37,21 @@ const deals = [
   affiliateLink: "#affiliate-link-placeholder"
 },
     {
+  title: "$2 OFF Any Purchase — Paris Baguette",
+  category: "Food",
+  benefit: "$2 OFF",
+  description: "A little thank-you from Paris Baguette! PB Rewards members can enjoy $2 OFF any purchase for one day only — Monday, November 2, 2026. A good excuse to grab your favorite pastry and coffee!",
+  expires: "November 2, 2026",
+  expiryDate: "2026-11-02",
+  posted: "Nov 01, 2026",
+  postingDate: "2026-11-01",
+  image: "images/Paris Baguette $2 Off Promotion.png",
+  emoji: "🥐",
+  code: "PB Rewards",
+  // TODO(affiliate): no Paris Baguette program in our stack; direct URL fallback.
+  affiliateLink: "https://www.parisbaguette.com/rewards"
+},
+    {
   title: "FREE Pastry — Paris Baguette (Halloween)",
   category: "Food",
   benefit: "Free",
