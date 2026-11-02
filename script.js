@@ -36,6 +36,18 @@ const deals = [
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
 },
+     {
+  title: "Pascucci $99 Starter Kit – Limited-Time Launch Offer!",
+  category: "Freebies",
+  benefit: "Free",
+  description: "Get a Pascucci coffee machine with 120 coffee captures + 20 Free Altura capsules at $99 + Tax",
+  posted: "Nov 02, 2026",
+  postingDate: "2026-11-02",
+  image: "images/Pascucci Starter Kit Altura Offer.png",
+  emoji: "☕ ",
+  code: "ALTURA-NOW",
+  affiliateLink: "https://pascuccicoffee.com/products/starter-kit"
+},  
     {
   title: "Get 1 Month of Free FSD (Supervised) — Tesla",
   category: "Freebies",
