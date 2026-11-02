@@ -43,6 +43,7 @@ const deals = [
   description: "Want to try Tesla Full Self-Driving (Supervised) for FREE? Through Tesla's referral program, eligible Tesla owners get 1 month of FSD (Supervised) at no cost. You must own a registered Tesla with compatible hardware and not have subscribed to FSD or redeemed an FSD trial in the past 12 months. US only. Referral link disclosure: Daily Wisdom may receive Tesla referral credits if you sign up using this link and subscribe during the trial.",
   posted: "Nov 01, 2026",
   postingDate: "2026-11-01",
+  image: "images/Tesla FSD Referral Offer c.separator.png",
   emoji: "🚗",
   code: "Referral Link",
   affiliateLink: "https://www.tesla.com/get-app/referral?code=jaegyoung965681"
