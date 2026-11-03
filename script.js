@@ -36,15 +36,17 @@ const deals = [
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
 },
-        {
-  title: "Potbelly BOGO November 3 ONLY!",
+{
+  title: "Potbelly BOGO — National Sandwich Day",
   category: "Food",
-  benefit: "BOGO",
-  description: "Buy 1 BIG or Original sandwich and Get 1 Original sandwich FREE! ",
+  benefit: "BUY 1, GET 1 FREE",
+  description: "Buy one BIG or Original sandwich, get one Original FREE. Use promo code BOGO.",
+  expires: "November 3, 2026",
+  expiryDate: "2026-11-03",
   posted: "Nov 03, 2026",
   postingDate: "2026-11-03",
   image: "images/Today's BOGO Sandwich Celebration.png",
-  emoji: "🥪 ",
+  emoji: "🥪",
   code: "BOGO",
   affiliateLink: "https://www.potbelly.com/"
 },  
