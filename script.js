@@ -36,6 +36,18 @@ const deals = [
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
 },
+        {
+  title: "Potbelly BOGO November 3 ONLY!",
+  category: "Food",
+  benefit: "BOGO",
+  description: "Buy 1 BIG or Original sandwich and Get 1 Original sandwich FREE! ",
+  posted: "Nov 03, 2026",
+  postingDate: "2026-11-03",
+  image: "images/Today's BOGO Sandwich Celebration.png",
+  emoji: "🥪 ",
+  code: "BOGO",
+  affiliateLink: "https://www.potbelly.com/"
+},  
      {
   title: "Pascucci $99 Starter Kit – Limited-Time Launch Offer!",
   category: "Freebies",
