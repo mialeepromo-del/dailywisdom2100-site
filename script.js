@@ -41,7 +41,7 @@ const deals = [
   title: "Mint Mobile Black Friday Deal",
   category: "Personal Finance",
   benefit: "$15/MO",
-  featuredAfterPinned: true,
+  pinned: true,
   description:
     "Mint Mobile Black Friday offer: Get an Unlimited Plan for just $15/month with upfront payment. Choose 3 months for $45, 6 months for $90, or 12 months for $180. Includes unlimited data, up to 20GB hotspot, and SD video streaming. New customers only. Taxes and fees extra. After 50GB/month, speeds may be reduced in certain locations when the network is busy.",
   expires: "Limited-Time Black Friday Offer",
@@ -82,6 +82,7 @@ const deals = [
   title: "Get 1 Month of Free FSD (Supervised) — Tesla",
   category: "Freebies",
   benefit: "Free",
+  pinned: true,
   description: "Want to try Tesla Full Self-Driving (Supervised) for FREE? Through Tesla's referral program, eligible Tesla owners get 1 month of FSD (Supervised) at no cost. You must own a registered Tesla with compatible hardware and not have subscribed to FSD or redeemed an FSD trial in the past 12 months. US only. Referral link disclosure: Daily Wisdom may receive Tesla referral credits if you sign up using this link and subscribe during the trial.",
   posted: "Nov 01, 2026",
   postingDate: "2026-11-01",
