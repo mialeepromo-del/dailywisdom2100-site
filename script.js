@@ -47,6 +47,8 @@ const deals = [
   expires: "Limited-Time Black Friday Offer",
   expiryDate: "",
   posted: "November 3, 2026",
+  postingDate: "2026-11-03",
+  image: "images/Mint Mobile Black Friday Deal.png",
   emoji: "📱",
   code: "No promo code required",
   affiliateLink: "https://my.mintmobile.com/refer/_kbpLGr"
