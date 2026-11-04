@@ -36,6 +36,21 @@ const deals = [
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
 },
+
+{
+  title: "Mint Mobile Black Friday Deal",
+  category: "Personal Finance",
+  benefit: "$15/MO",
+  description:
+    "Mint Mobile Black Friday offer: Get an Unlimited Plan for just $15/month with upfront payment. Choose 3 months for $45, 6 months for $90, or 12 months for $180. Includes unlimited data, up to 20GB hotspot, and SD video streaming. New customers only. Taxes and fees extra. After 50GB/month, speeds may be reduced in certain locations when the network is busy.",
+  expires: "Limited-Time Black Friday Offer",
+  expiryDate: "",
+  posted: "November 3, 2026",
+  emoji: "📱",
+  code: "No promo code required",
+  affiliateLink: "https://my.mintmobile.com/refer/_kbpLGr"
+},
+
 {
   title: "Potbelly BOGO — National Sandwich Day",
   category: "Food",
