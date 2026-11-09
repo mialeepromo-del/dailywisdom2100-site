@@ -46,7 +46,7 @@ const deals = [
   expiryDate: "2026-11-13",
   posted: "Nov 09, 2026",
   postingDate: "2026-11-09",
-  image: "images/Chipotle BOGO Friday the 13th.svg",
+  image: "images/Chipotle BOGO Tattoo Deal Poster.png",
   emoji: "🌯",
   code: "NO CODE NEEDED",
   // TODO(affiliate): no Chipotle program in our stack; direct URL fallback.
