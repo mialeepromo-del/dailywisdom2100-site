@@ -54,6 +54,22 @@ const deals = [
 },
 
 {
+  title: "Paris Baguette — A Season of Giving",
+  category: "Food",
+  benefit: "FREE COFFEE • 13¢ PASTRY",
+  description: "Paris Baguette's PB Rewards November offers: Nov 11 — free medium hot or iced coffee with any purchase for Remembrance Day (no ID required); Nov 13 — a pastry for just $0.13 with any purchase, limit 1 per PB Rewards member; Nov 23 — buy one cake slice, get one FREE for National Cake Day; Nov 30 — free medium hot or iced coffee OR a free pastry with any purchase for Cyber Monday. PB Rewards membership required; participating locations only.",
+  expires: "Nov 11, 13, 23 & 30, 2026",
+  expiryDate: "2026-11-30",
+  posted: "Nov 09, 2026",
+  postingDate: "2026-11-09",
+  image: "images/A Season of Giving_ November Bakery Deals.png",
+  emoji: "🥐",
+  code: "NO CODE NEEDED",
+  // TODO(affiliate): no Paris Baguette program in our stack; direct URL fallback.
+  affiliateLink: "https://www.parisbaguette.com/"
+},
+
+{
   title: "Mint Mobile Black Friday Deal",
   category: "Personal Finance",
   benefit: "$15/MO",
