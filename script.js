@@ -38,38 +38,6 @@ const deals = [
 },
 
 {
-  title: "Chipotle BOGO — Friday the 13th",
-  category: "Food",
-  benefit: "BUY 1, GET 1 FREE",
-  description: "Friday the 13th is back at Chipotle! Show a tattoo — permanent, temporary, or drawn-on — and buy one entrée, get one of equal or lesser value FREE. Friday, November 13, 2026, 3–4 PM local time only. In-restaurant only at participating U.S. & Canada locations. Up to 5 free entrées per check. Not valid for online, mobile, delivery, or catering orders. Kids' meals don't count as an entrée purchase.",
-  expires: "November 13, 2026, 3–4 PM",
-  expiryDate: "2026-11-13",
-  posted: "Nov 09, 2026",
-  postingDate: "2026-11-09",
-  image: "images/Chipotle BOGO Tattoo Deal Poster.png",
-  emoji: "🌯",
-  code: "NO CODE NEEDED",
-  // TODO(affiliate): no Chipotle program in our stack; direct URL fallback.
-  affiliateLink: "https://www.chipotle.com/"
-},
-
-{
-  title: "Paris Baguette — A Season of Giving",
-  category: "Food",
-  benefit: "FREE COFFEE • 13¢ PASTRY",
-  description: "Paris Baguette's PB Rewards November offers: Nov 11 — free medium hot or iced coffee with any purchase for Veterans Day (no ID required); Nov 13 — a pastry for just $0.13 with any purchase, limit 1 per PB Rewards member; Nov 23 — buy one cake slice, get one FREE for National Cake Day; Nov 30 — free medium hot or iced coffee OR a free pastry with any purchase for Cyber Monday. PB Rewards membership required; participating locations only.",
-  expires: "Nov 11, 13, 23 & 30, 2026",
-  expiryDate: "2026-11-30",
-  posted: "Nov 09, 2026",
-  postingDate: "2026-11-09",
-  image: "images/A Season of Giving at Paris Baguette.png",
-  emoji: "🥐",
-  code: "NO CODE NEEDED",
-  // TODO(affiliate): no Paris Baguette program in our stack; direct URL fallback.
-  affiliateLink: "https://www.parisbaguette.com/"
-},
-
-{
   title: "Mint Mobile Black Friday Deal",
   category: "Personal Finance",
   benefit: "$15/MO",
