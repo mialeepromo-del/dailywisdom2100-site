@@ -28,29 +28,13 @@ const deals = [
   benefit: "Free",
   pinned: true,
   description: "One fresh Sudoku every morning \u2014 gone by tomorrow. Hit Play Now to play, download, or print today's puzzle before it disappears.",
-  posted: "Nov 18, 2026",
-  postingDate: "2026-11-18",
-  image: "images/sudoku_2026-11-18_puzzle.svg",
+  posted: "Nov 19, 2026",
+  postingDate: "2026-11-19",
+  image: "images/sudoku_2026-11-19_puzzle.svg",
   playUrl: "sudoku.html",
   emoji: "🧩",
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
-},
-
-{
-  title: "Hershey's Milk Chocolate Bar \u2014 5\u00a2 (One Day Only)",
-  category: "Food",
-  benefit: "5\u00a2 PER BAR",
-  description: "Classic Hershey's Milk Chocolate Bars for just $0.05 each \u2014 Wednesday, November 25, 2026, one day only. Walmart: 5 bars max per person (order online for pickup, or buy in-store and submit your receipt through Ibotta). Amazon: same-day delivery in eligible areas. Hershey's Chocolate World: 2 bars max per person. Starts 6 AM PT / 9 AM ET, while supplies last.",
-  expires: "November 25, 2026",
-  expiryDate: "2026-11-25",
-  posted: "November 18, 2026",
-  postingDate: "2026-11-18",
-  image: "images/media-generation-hershey-5c-retro-vibe-0-bf67c44d-9ad4-403b-9b0b-bd36d4671df6.jpg",
-  emoji: "\ud83c\udf6b",
-  code: "No promo code required",
-  // TODO(affiliate): upgrade to a tracked affiliate link when one exists for Hersheyland.
-  affiliateLink: "https://www.hersheyland.com/hersheys"
 },
 
 {
