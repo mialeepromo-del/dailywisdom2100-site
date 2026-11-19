@@ -46,11 +46,11 @@ const deals = [
   expiryDate: "2026-11-25",
   posted: "November 18, 2026",
   postingDate: "2026-11-18",
-  image: "images/hershey-5c-chocolate-bar.jpg",
+  image: "images/media-generation-hershey-5c-retro-vibe-0-bf67c44d-9ad4-403b-9b0b-bd36d4671df6.jpg",
   emoji: "\ud83c\udf6b",
   code: "No promo code required",
-  // TODO(affiliate): upgrade to a tracked affiliate link when one exists for Walmart/Amazon.
-  affiliateLink: "https://www.walmart.com/"
+  // TODO(affiliate): upgrade to a tracked affiliate link when one exists for Hersheyland.
+  affiliateLink: "https://www.hersheyland.com/hersheys"
 },
 
 {
