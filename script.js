@@ -36,6 +36,21 @@ const deals = [
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
 },
+    {
+  title: "FREE Movie Ticket \u2014 November 1963",
+  category: "Movie",
+  benefit: "Free",
+  description: "Want to watch November 1963 for FREE? Use promo code 1963FREE at Fandango to get up to $40 off per ticket (up to $120 off per order, max 3 tickets). Valid Nov 20 at 12 PM \u2013 Dec 4 at 11:59 PM PT. U.S. only, 18+. Free Fandango account required. One use per person. No new membership required. While supplies last.",
+  expires: "December 4, 2026",
+  expiryDate: "2026-12-04",
+  posted: "Nov 20, 2026",
+  postingDate: "2026-11-20",
+  image: "images/Free Movie Ticket Code Poster.png",
+  emoji: "\U0001F3AC",
+  code: "1963FREE",
+  affiliateLink: "https://www.fandangomovietickets.com/november1963/"
+},
+
 
 {
   title: "Hershey's Milk Chocolate Bar \u2014 5\u00a2 (One Day Only)",
