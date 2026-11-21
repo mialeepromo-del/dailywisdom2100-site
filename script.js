@@ -46,7 +46,7 @@ const deals = [
   posted: "Nov 20, 2026",
   postingDate: "2026-11-20",
   image: "images/Free Movie Ticket Code Poster.png",
-  emoji: "\U0001F3AC",
+  emoji: "🎬",
   code: "1963FREE",
   affiliateLink: "https://www.fandangomovietickets.com/november1963/"
 },
