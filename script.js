@@ -36,6 +36,19 @@ const deals = [
   code: "NO CODE NEEDED",
   affiliateLink: "#affiliate-link-placeholder"
 },
+{
+  title: "Chipotle Back Home BOGO: Buy One Entrée, Get One FREE",
+  category: "Food",
+  benefit: "1 FREE Entrée",
+  description: "Celebrate Thanksgiving week with a BUY ONE, GET ONE FREE entrée at Chipotle! Wednesday, November 25, 2026, 5–9 PM local time. Chipotle Rewards members only, in-restaurant purchases only, at participating U.S. locations.",
+  expires: "November 25, 2026 (5–9 PM)",
+  expiryDate: "2026-11-25",
+  posted: "Nov 23, 2026",
+  postingDate: "2026-11-23",
+  image: "images/Chipotle BOGO Burrito Celebration.png",
+  emoji: "🌯",
+  affiliateLink: "https://www.chipotle.com"
+},
     {
   title: "FREE Movie Ticket \u2014 November 1963",
   category: "Movie",
