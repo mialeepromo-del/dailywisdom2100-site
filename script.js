@@ -47,6 +47,7 @@ const deals = [
   postingDate: "2026-11-23",
   image: "images/Chipotle BOGO Burrito Celebration.png",
   emoji: "🌯",
+  code: "No code needed",
   affiliateLink: "https://www.chipotle.com"
 },
     {
